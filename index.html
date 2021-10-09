@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <title>Дело жизни</title>
+</head>
+<body>
+    <div class="wrapper">
+<header class="header">
+    <div class="header__content container">
+
+        <!-- Лого компании -->
+        <a href="#" class="header__logo">
+            <div class="logo__inner">
+                <picture>
+                    <source srcset="img/header/logo.webp" type="image/webp">
+                    <img src="img/header/logo.png" alt="">
+                </picture>
+            </div>
+        </a>
+
+        <!-- Основное меню -->
+        <div class=" header__menu menu">
+            <div class="menu__icon icon-menu">
+                <!-- иконка бургера -->
+                <span></span>
+            </div>
+            <nav class="menu__body">
+                <!-- блок с навигацией по странице -->
+                <ul class="menu__list">
+                    <!-- меню навигации -->
+                    <li><a href="" class="menu__link menu__link-main" data-goto=".">Главная</a></li>
+                    <li><a href="" class="menu__link" data-goto=".">О нас</a></li>
+                    <li>
+                        <a href="" class="menu__link">Помощь</a>
+                        <span class="menu__arrow icon-more"></span>
+                        <ul class="menu__sub-list">
+                            <!-- Меню с подмею -->
+                            <li><a href="#" class="menu__sub-link">Правоустанавливающие документы</a></li>
+                            <li><a href="#" class="menu__sub-link">Правила страхования и тарифы</a></li>
+                            <li><a href="#" class="menu__sub-link">Годовая отчетность</a></li>
+                            <li><a href="#" class="menu__sub-link">Политика в отношении обработки персональных
+                                    данных</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Чтобы это понять, нужно зайти в JS и посмотреть всё, что идёт после комента "select" -->
+                    <li data-da=".menu__list-mob,1024,0">
+                        <select name="form[]" class="form">
+                            <option value="Санкт-Петербург" selected="selected">Санкт-Петербург</option>
+                            <option value="Азов">Азов (Ростовская область)</option>
+                            <option value="Алексеевка">Алексеевка (Белгородская область)</option>
+                            <option value="Архангельск">Архангельск</option>
+                            <option value="Барнаул">Барнаул</option>
+                            <option value="Белгород">Белгород</option>
+                            <option value="Благовещенск">Благовещенск (республика
+                                Башкортостан)</option>
+                            <option value="Вельск">Вельск (Архангельская область)</option>
+                            <option value="Гатчина">Гатчина (Ленинградская область)</option>
+                            <option value="Екатеринбург">Екатеринбург</option>
+                            <option value="Ессентуки">Ессентуки</option>
+                            <option value="Иваново">Иваново</option>
+                            <option value="Ижевск">Ижевск (республика Удмуртия)</option>
+                            <option value="Йошкар-ола">Йошкар-ола</option>
+                            <option value="Кемерово">Кемерово</option>
+                            <option value="Колпино">Колпино (санкт-петербург)</option>
+                            <option value="Кострома">Кострома</option>
+                            <option value="Краснодар">Краснодар</option>
+                        </select>
+                    </li>
+                    <li><a data-da=".menu__list-mob,1024,1" href="tel:+74959671301" class="menu__link menu__link-tel">+7
+                            495 967 13 01</a></li>
+                    <li><a data-da=".menu__list,1024,first" href="" class="menu__link icon-lk menu__link-lk">Личный
+                            кабинет</a></li>
+
+                </ul>
+
+                <ul class="menu__list-mob">
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+        <main class="page">
+
+            <section class="intro padding">
+                <div class="container">
+                    <div class="intro__inner">
+                        <div class="intro__cards">
+
+                            <div class="intro__card shadow">
+                                <div class="intro__wrapper">
+                                    <h2 class="card-title title">Защита</h2>
+                                    <div class="intro__image">
+                                        <picture>
+                                            <source srcset="img/intro/1.webp">
+                                            <img src="img/intro/1.png" alt="shild">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="intro__button">
+                                    <a href="#" class="button">себя и близких</a>
+                                    <a href="#" class="button">сотрудников</a>
+
+                                </div>
+                            </div>
+                            <div class="intro__card shadow">
+                                <h2 class="card-title title">твоё <br>Будущее</h2>
+                                <div class="intro__image">
+                                    <picture>
+                                        <source srcset="img/intro/2.webp">
+                                        <img src="img/intro/2.png" alt="shild">
+                                    </picture>
+                                </div>
+                                <div class="intro__button">
+                                    <a href="#" class="button">позаботься о будущем</a>
+
+                                </div>
+                            </div>
+                            <div class="intro__card shadow">
+                                <h2 class="card-title title">Бизнес <br>предложения</h2>
+                                <div class="intro__image">
+                                    <picture>
+                                        <source srcset="img/intro/3.webp">
+                                        <img src="img/intro/3.png" alt="shild">
+                                    </picture>
+                                </div>
+                                <div class="intro__button">
+                                    <a href="#" class="button">узнать больше</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="programs padding">
+                <div class="container">
+                    <div class="programs__inner">
+                        <div class="programs__title">
+                            <h2 class="title">Страховые программы</h2>
+                        </div>
+                        <div class="programs__cards">
+
+                            <div class="programs__card shadow">
+
+                                <div class="programs__row programs__row-text">
+                                    <div class="programs__card-column card-column-left">
+                                        <h3>программа <span>«здоровье»</span></h3>
+                                        <picture>
+                                            <source srcset="img/programs/1.webp" type="image/webp">
+                                            <img src="img/programs/1.png" alt="">
+                                        </picture>
+                                    </div>
+
+                                    <div class="programs__card-column programs__card-text">
+
+                                        <div class="programs__card-text-inner">
+                                            <div class="programs__card-text-inner-top"><span
+                                                    class="programs__card-text-decoration">до</span>1 000 000 ₽
+                                            </div>
+                                            <div class="programs__card-text-inner-bottom">сумма страхования</div>
+                                        </div>
+                                        <div class="programs__card-text-inner">
+                                            <div class="programs__card-text-inner-top"><span
+                                                    class="programs__card-text-decoration">до</span>10 дней</div>
+                                            <div class="programs__card-text-inner-bottom">денежное возмещение</div>
+                                        </div>
+                                        <div class="programs__card-text-inner">
+                                            <div class="programs__card-text-inner-top"><span
+                                                    class="programs__card-text-decoration">от</span>5 лет</div>
+                                            <div class="programs__card-text-inner-bottom">страховой тариф остается
+                                                неизменным</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="prorams__row programs__card-button">
+                                    <a href="#" class="button">Купить</a>
+                                </div>
+
+                            </div>
+                            <div class="programs__card shadow">
+
+                                <div class="programs__row programs__row-text">
+                                    <div class="programs__card-column card-column-left">
+                                        <h3>онлайн <br><span>ДМС</span></h3>
+                                        <picture>
+                                            <source srcset="img/programs/2.webp" type="image/webp">
+                                            <img src="img/programs/2.png" alt="">
+                                        </picture>
+                                    </div>
+
+                                    <div class="programs__card-column programs__card-text">
+
+                                        <div class="programs__card-text-inner">
+                                            <div class="programs__card-text-inner-top"><span
+                                                    class="programs__card-text-decoration">до</span>75 000 ₽
+                                            </div>
+                                            <div class="programs__card-text-inner-bottom">сумма страхования</div>
+                                        </div>
+                                        <div class="programs__card-text-inner">
+                                            <div class="programs__card-text-inner-top"><span
+                                                    class="programs__card-text-decoration">до</span> <img
+                                                    src="img/inf.svg" alt=""> чел
+                                            </div>
+                                            <div class="programs__card-text-inner-bottom">денежное возмещение</div>
+                                        </div>
+                                        <div class="programs__card-text-inner">
+                                            <div class="programs__card-text-inner-top"><span
+                                                    class="programs__card-text-decoration">45 000 ₽</span>52 000 ₽
+                                            </div>
+                                            <div class="programs__card-text-inner-bottom">с возможностью увиличить сумму
+                                                страхования *</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="prorams__row programs__card-button">
+                                    <a href="#" class="button">Купить</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="insurance padding">
+                <div class="container">
+                    <div class="insurance__inner">
+                        <div class="insurance__title">
+                            <h2 class="title">Виды страхования</h2>
+                        </div>
+                        <div class="insurance__cards">
+                            <div class="insurance__card">
+                                <div class="insurance-card__text">страхование жизни на случай смерти</div>
+                                <a class="card__image shadow">
+                                    <img src="img/insurance/1.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="insurance__card insurance__card-2">
+                                <div class="insurance-card__text">страхование жизни с условием периодических страховых
+                                    выплат
+                                </div>
+                                <a class="card__image shadow">
+                                    <img src="img/insurance/2.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="insurance__card">
+                                <div class="insurance-card__text">страхование от несчастных случаев и болезней</div>
+                                <a class="card__image shadow">
+                                    <img src="img/insurance/3.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="insurance__card insurance__card-2">
+                                <div class="insurance-card__text">медицинское страхование</div>
+                                <a class="card__image shadow">
+                                    <img src="img/insurance/4.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about padding">
+                <div class="container">
+                    <div class="about__inner">
+                        <div class="about__title">
+                            <div class="h2 title">Немного о нас</div>
+                        </div>
+                        <div class="about__text">
+                            <div class="about__text-inner">
+                                <div class="about__text-row text-row-about">
+                                    <div class="text-row-block">
+                                        <p class="row-block-text">> 380 <span>мил. руб.</span></p>
+                                        <p class="row-block-text-bottom">капитала</p>
+                                    </div>
+                                    <div class="text-row-block">
+                                        <p class="row-block-text">~ 78</p>
+                                        <p class="row-block-text-bottom">региональных предстравительств</p>
+                                    </div>
+                                    <div class="text-row-block">
+                                        <p class="row-block-text">> 20</p>
+                                        <p class="row-block-text-bottom">лет на рынке страховых услуг</p>
+                                    </div>
+                                    <div class="text-row-block">
+                                        <p class="row-block-text">ruВВВ</p>
+                                        <p class="row-block-text-bottom">высокий уровень надежности</p>
+                                    </div>
+                                </div>
+
+                                <div class="about__text-row image-row-about">
+                                    <div class="about__images">
+                                        <div class="about__image"><img src="img/about/1.png" alt=""></div>
+                                        <div class="about__image"><img src="img/about/2.png" alt=""></div>
+                                        <div class="about__image"><img src="img/about/3.png" alt=""></div>
+                                        <div class="about__image"><img src="img/about/4.png" alt=""></div>
+                                        <div class="about__image"><img src="img/about/5.png" alt=""></div>
+                                        <div class="about__image"><img src="img/about/6.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="describtion padding">
+                <div class="container">
+                    <div class="describtion__inner">
+                        <div class="describtion__title">
+                            <h2 class="title">Зачем нужно страхование</h2>
+                        </div>
+                        <div class="describtion__text">
+                            <div class="describtion__text-text">
+                                <p>
+                                    «Страхование — это уверенность в будущем, и не только своем, но и будещем наших
+                                    детей, родных. Нужна гарантия, что
+                                    сегодня и завтра мы и наши семьи не будем нуждаться в необходимом. Получив ее,
+                                    мы можем двигаться вперед, дать своим
+                                    детям хороший старт, позаботиться о родителях.
+                                </p>
+                                <p>
+                                    Страхование жизни — доступно всем! Это возможность получить деньги именно тогда,
+                                    когда они необходимы!
+                                </p>
+                                <p>
+                                    Мы с радостью расскажем Вам о страховании, найдем подходящий Вам вариант страховой
+                                    программы, поможем сделать Вашу жизнь
+                                    такой, какой Вы хотите ее видеть!»
+                                </p>
+                            </div>
+                            <div class="describtion__text-image">
+                                <img src="img/describtion/1.png" alt="">
+                                <div class="describtion__image-text">
+                                    <p class="image-name">
+                                        Чумак Наталья
+                                    </p>
+
+                                    <p class="image-status">
+                                        президент
+                                    </p>
+                                    <p class="image-work">
+                                        ООО СК "ДЕЛО ЖИЗНИ"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="offer padding">
+                <div class="container">
+                    <div class="offer__inner">
+                        <div class="offer__title">
+                            <h2 class="title">спецпредложения</h2>
+                        </div>
+                        <div class="swiper swiper-offer">
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <div class="slide__inner">
+                                        <img src="img/offer/1.png" alt="">
+                                        <div class="slide-text">
+                                            <p>Смотри в будущее спокойно и уверенно</p>
+                                            <a href="#" class="button">узнать больше</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide__inner">
+                                        <img src="img/offer/2.png" alt="">
+                                        <div class="slide-text">
+                                            <p>Программа “НС1”
+                                                обеспечь надежную защиту своих сотрудников</p>
+                                            <a href="#" class="button">узнать больше</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide__inner">
+                                        <img src="img/offer/3.png" alt="">
+                                        <div class="slide-text">
+                                            <p>Cоздай себе надежный капитал</p>
+                                            <a href="#" class="button">узнать больше</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide__inner">
+                                        <img src="img/offer/4.png" alt="">
+                                        <div class="slide-text">
+                                            <p>Cтраховой продукт «непоседа» разработан для защиты ваших детей</p>
+                                            <a href="#" class="button">узнать больше</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-scrollbar"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+            <section class="news padding">
+                <div class="container">
+                    <div class="news__inner">
+                        <div class="news__title">
+                            <div class="title">Новости</div>
+                        </div>
+                        <div class="swiper news__cards">
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <div class="new__card shadow">
+                                        <div class="news-card__image">
+                                            <img src="img/news/1.png" alt="">
+                                        </div>
+                                        <div class="news__card-wrapper">
+                                            <div class="card__data">
+                                                06-11-2020
+                                            </div>
+                                            <div class="card__text">
+                                                КОМПАНИЯ СК «ДЕЛО ЖИЗНИ» ГОТОВА ПРЕДЛОЖИТЬ ИНДИВИДУАЛЬНЫЕ
+                                                РЕШЕНИЯ ПО НСЖ
+                                            </div>
+                                            <div class="card__tags">
+                                                <div class="card__tag">налоги</div>
+                                                <div class="card__tag">Дело жизни</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="new__card shadow">
+                                        <div class="news-card__image">
+                                            <img src="img/news/2.png" alt="">
+                                        </div>
+                                        <div class="news__card-wrapper">
+                                            <div class="card__data">
+                                                06-11-2020
+                                            </div>
+                                            <div class="card__text">
+                                                ООО СК «ДЕЛО ЖИЗНИ» ОБЪЯВЛЯЕТ О РАЗМЕРЕ ИНВЕСТИЦИОННОЙ ДОХОДНОСТИ ПО
+                                                ПОЛИСАМ...
+                                            </div>
+                                            <div class="card__tags">
+                                                <div class="card__tag">дело жизни</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="new__card shadow">
+                                        <a class="news-card__image">
+                                            <img src="img/news/3.png" alt="">
+                                        </a>
+                                        <div class="news__card-wrapper">
+                                            <div class="card__data">
+                                                06-11-2020
+                                            </div>
+                                            <div class="card__text">
+                                                ООО СК «ДЕЛО ЖИЗНИ» ИСПОЛНИЛА ТРЕБОВАНИЯ
+                                                ПО МИНИМАЛЬНОМУ РАЗМЕРУ УСТАВНОГО...
+                                            </div>
+                                            <div class="card__tags">
+                                                <div class="card__tag">налоги</div>
+                                                <div class="card__tag">сервис</div>
+                                                <div class="card__tag">дело жизни</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-scrollbar"></div>
+
+                        </div>
+                        <div class="news__button">
+                            <a href="#" class="button icon-arrow">Смотреть все</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="buttons padding">
+                <div class="container">
+                    <div class="buttons__inner">
+
+                        <h2 class="buttons__title title">полезные кнопки</h2>
+                        <div class="buttons__items">
+
+                            <div class="buttons__item">
+                                <a href="#" class="button">Задать вопрос</a>
+                            </div>
+                            <div class="buttons__item">
+                                <a href="#" class="button">Калькулятор</a>
+                            </div>
+                            <div class="buttons__item">
+                                <a href="#" class="button">Проверить агента</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+<div class="popup" id="popup">
+    <div class="popup__body">
+        <div class="popup__content">
+            <a class="popup__close close-popup" href="#"></a>
+            <div class="popup__title">Это модальное окно №1</div>
+            <div class="popup__text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam mollitia porro, fugiat libero
+                voluptatibus totam repudiandae. Repellendus, ratione, autem itaque iure ducimus fugiat doloremque quis
+                alias nemo dignissimos, culpa dolore?
+            </div>
+        </div>
+    </div>
+</div><footer class="footer">
+    <div class="container">
+        <div class="footer__inner padding">
+
+            <div class="footer__row footer__row-social">
+                <div class="footer__column footer__column-links">
+                    <ul class="footer__links">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Спецпредложения</a></li>
+                        <li><a href="#">Бизнес предложения</a></li>
+                        <li><a href="#">Твоё будущее</a></li>
+                        <li><a href="#">Защита себя и близких</a></li>
+                        <li><a href="#">Защита сотрудников</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column footer__column-submenu">
+                    <ul>
+                        <li><a href="#">Страховая документация</a></li>
+                        <li><a href="#">Финансовые показатели</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Карта сайта</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <address>
+                        <p>
+                            125252, г. Москва,
+                            ул. Зорге, д. 22 А, офис 811
+                        </p>
+                    </address>
+                    <address>
+                        <p>
+                            График работы главного офиса
+                            125252, г. Москва,
+                            ул. Зорге, д. 22 А, офис 811
+                            Пн. - Чт. с 9:00 до 18:00
+                            Пт. с 9:00 до 16:45
+                            Сб-Вс выходной
+                        </p>
+                    </address>
+                    <a href="#" class="button">Как добраться</a>
+                </div>
+                <div class="footer__column">
+                    <address>
+                        <p>
+                            Адрес для почтовых отправлений:
+                            125252, г. Москва, а/я 28
+                        </p>
+                    </address>
+                    <a href="tel:+74959671301">тел.: +7 495 967 13 01</a>
+                    <p>
+                        Email для связи с нами
+                    </p>
+                    <a href="mailto:info@prolife.ru">
+                        info@prolife.ru
+                    </a>
+                    <div class="footer__social">
+                        <a href="#"><img src="img/vk.svg" alt=""></a>
+                        <a href="#"><img src="img/telegramm.svg" alt=""></a>
+                        <a href="#"><img src="img/facebook.svg" alt=""></a>
+                        <a href="#"><img src="img/instagramm.svg" alt=""></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="footer__sub-text">
+        <div class="footer__sub-text-inner container">
+            © 1998 – 2021 ООО СК "ДЕЛО ЖИЗНИ". Все права защищены. Полное или
+            частичное копирование любых материалов сайта
+            запрещено. ООО СК «ДЕЛО ЖИЗНИ» осуществляет свою деятельность на основании лицензий ЦБ РФ:СЖ № 3870
+            от 24.03.2017СЛ №
+            3870 от 24.03.2017 Органом, осуществляющим полномочия по контролю и надзору за ООО СК «ДЕЛО ЖИЗНИ»
+            является Банк России.
+            Адрес официального сайта Банк России - www.cbr.ru.
+        </div>
+    </div>
+</footer>    </div>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+</body>
+
+</html>
