@@ -14,46 +14,31 @@
 <body>
     <div class="wrapper">
 <header class="header">
-    <div class="header__content container">
+    <div class="container header__container">
+        <a href="#" class="header__logo"><img src="img/header/logo.png" alt="logo"></a>
 
-        <!-- Лого компании -->
-        <a href="#" class="header__logo">
-            <div class="logo__inner">
-                <picture>
-                    <source srcset="img/header/logo.webp" type="image/webp">
-                    <img src="img/header/logo.png" alt="">
-                </picture>
-            </div>
-        </a>
-
-        <!-- Основное меню -->
-        <div class=" header__menu menu">
+        <div class="header__menu menu">
             <div class="menu__icon icon-menu">
-                <!-- иконка бургера -->
                 <span></span>
             </div>
+
             <nav class="menu__body">
-                <!-- блок с навигацией по странице -->
                 <ul class="menu__list">
-                    <!-- меню навигации -->
-                    <li><a href="" class="menu__link menu__link-main" data-goto=".">Главная</a></li>
-                    <li><a href="" class="menu__link" data-goto=".">О нас</a></li>
+                    <li class="menu__link-main"><a href="#" class="menu__link">Главная</a></li>
+                    <li><a href="#" class="menu__link">О нас</a></li>
                     <li>
-                        <a href="" class="menu__link">Помощь</a>
-                        <span class="menu__arrow icon-more"></span>
+                        <a href="#" class="menu__link">Помощь</a>
+                        <span class="menu__arrow"></span>
                         <ul class="menu__sub-list">
-                            <!-- Меню с подмею -->
-                            <li><a href="#" class="menu__sub-link">Правоустанавливающие документы</a></li>
-                            <li><a href="#" class="menu__sub-link">Правила страхования и тарифы</a></li>
-                            <li><a href="#" class="menu__sub-link">Годовая отчетность</a></li>
-                            <li><a href="#" class="menu__sub-link">Политика в отношении обработки персональных
+                            <li><a href="" class="menu__sub-link">Правоустанавливающие документы</a></li>
+                            <li><a href="" class="menu__sub-link">Правила страхования и тарифы</a></li>
+                            <li><a href="" class="menu__sub-link">Годовая отчетность</a></li>
+                            <li><a href="" class="menu__sub-link">Политика в отношении обработки персональных
                                     данных</a>
                             </li>
-
                         </ul>
                     </li>
-                    <!-- Чтобы это понять, нужно зайти в JS и посмотреть всё, что идёт после комента "select" -->
-                    <li data-da=".menu__list-mob,1024,0">
+                    <li>
                         <select name="form[]" class="form ">
                             <option value="Санкт-Петербург" selected="selected">Санкт-Петербург</option>
                             <option value="Азов">Азов (Ростовская область)</option>
@@ -76,20 +61,17 @@
                             <option value="Краснодар">Краснодар</option>
                         </select>
                     </li>
-                    <li><a data-da=".menu__list-mob,1150,1" href="tel:+74959671301" class="menu__link menu__link-tel">+7
-                            495 967 13 01</a></li>
-                    <li><a data-da=".menu__list,1150,first" href="" class="menu__link icon-lk menu__link-lk">Личный
+                    <li><a href="tel:+74959671301" class="menu__link menu__link-">+7 495 967 13 01</a></li>
+                    <li data-da=".menu__list,1240,first" class="link-lk"><a href="#"
+                            class="menu__link icon-lk menu__link-lk">Личный
                             кабинет</a></li>
-
-                </ul>
-
-                <ul class="menu__list-mob">
-
                 </ul>
             </nav>
         </div>
+
     </div>
 </header>
+
         <main class="page">
 
             <section class="intro padding">
