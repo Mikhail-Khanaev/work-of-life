@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в личный кабинет</title>
+
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+<header class="header">
+    <div class="container header__container">
+        <a href="#" class="header__logo"><img src="img/header/logo.png" alt="logo"></a>
+
+        <div class="header__menu menu">
+            <div class="menu__icon icon-menu">
+                <span></span>
+            </div>
+
+            <nav class="menu__body">
+                <ul class="menu__list">
+                    <li class="menu__link-main"><a href="index.html" class="menu__link">Главная</a></li>
+                    <li><a href="#" class="menu__link">О нас</a></li>
+                    <li>
+                        <a href="#" class="menu__link">Помощь</a>
+                        <span class="menu__arrow"></span>
+                        <ul class="menu__sub-list">
+                            <li><a href="#" class="menu__sub-link">Правоустанавливающие документы</a></li>
+                            <li><a href="#" class="menu__sub-link">Правила страхования и тарифы</a></li>
+                            <li><a href="#" class="menu__sub-link">Годовая отчетность</a></li>
+                            <li><a href="#" class="menu__sub-link">Политика в отношении обработки персональных
+                                    данных</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <select name="form[]" class="form ">
+                            <option value="Санкт-Петербург" selected="selected">Санкт-Петербург</option>
+                            <option value="Азов">Азов (Ростовская область)</option>
+                            <option value="Алексеевка">Алексеевка (Белгородская область)</option>
+                            <option value="Архангельск">Архангельск</option>
+                            <option value="Барнаул">Барнаул</option>
+                            <option value="Белгород">Белгород</option>
+                            <option value="Благовещенск">Благовещенск (республика
+                                Башкортостан)</option>
+                            <option value="Вельск">Вельск (Архангельская область)</option>
+                            <option value="Гатчина">Гатчина (Ленинградская область)</option>
+                            <option value="Екатеринбург">Екатеринбург</option>
+                            <option value="Ессентуки">Ессентуки</option>
+                            <option value="Иваново">Иваново</option>
+                            <option value="Ижевск">Ижевск (республика Удмуртия)</option>
+                            <option value="Йошкар-ола">Йошкар-ола</option>
+                            <option value="Кемерово">Кемерово</option>
+                            <option value="Колпино">Колпино (санкт-петербург)</option>
+                            <option value="Кострома">Кострома</option>
+                            <option value="Краснодар">Краснодар</option>
+                        </select>
+                    </li>
+                    <li><a href="tel:+74959671301" class="menu__link menu__link-">+7 495 967 13 01</a></li>
+                    <li data-da=".menu__list,1240,first" class="link-lk"><a href="account.html"
+                            class="menu__link icon-lk menu__link-lk">Личный
+                            кабинет</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</header>        <main class="page">
+            <section class="main padding">
+                <div class="container main__container">
+                    <div class="main__inner">
+                        <div class="main__column main__column-form">
+
+                            <div class="form">
+                                <form action="#" id="form" class="form__body">
+
+                                    <h1 class="form__title">Добрый день!</h1>
+                                    <div class="form__item">
+                                        <label for="formLogin" class="form__label">Логин</label>
+                                        <input id="formLogin" type="text" name="login" class="form__input email req"
+                                            placeholder="Введите свой номер телефона или email">
+                                    </div>
+                                    <div class="form__item form__input-password">
+                                        <label for="formPassword" class="form__label">Пароль</label>
+                                        <input id="formPassword" type="text" style="-webkit-text-security: disc;"
+                                            name="password" class="form__input req" placeholder="Введите пароль">
+                                        <a class="forgot" href="#">Забыли пароль?</a>
+                                    </div>
+                                    <button type="submit" class="form__button">Войти</button>
+                                    <a href="#" class="reg">Зарегистрироваться</a>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="main__column main__column-text">
+                            <div class="main__column-text-row text-top">
+                                <div class="text-top-text">причин зарегис трироваться</div>
+                                <div class="text-top-num">5</div>
+                            </div>
+                            <div class="main__column-text-row text-bottom">
+                                <div class="text-bottom-item">
+                                    <div class="text-image">
+                                        <img src="img/account/1.svg" alt="#1">
+                                    </div>
+                                    <div class="text-text">быстрые <span class="item-subtext">и удобные</span> правки
+                                    </div>
+                                </div>
+                                <div class="text-bottom-item">
+                                    <div class="text-image">
+                                        <img src="img/account/2.svg" alt="#2">
+                                    </div>
+                                    <div class="text-text">надежность</div>
+                                </div>
+                                <div class="text-bottom-item">
+                                    <div class="text-image">
+                                        <img src="img/account/3.svg" alt="#3">
+                                    </div>
+                                    <div class="text-text">приватность</div>
+                                </div>
+                                <div class="text-bottom-item">
+                                    <div class="text-image">
+                                        <img src="img/account/4.svg" alt="#4">
+                                    </div>
+                                    <div class="text-text">все документы в одном месте</div>
+                                </div>
+                                <div class="text-bottom-item">
+                                    <div class="text-image">
+                                        <img src="img/account/5.svg" alt="#5">
+                                    </div>
+                                    <div class="text-text">индивидувльный подход</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__inner padding">
+
+            <div class="footer__row footer__row-social">
+                <div class="footer__column footer__column-links">
+                    <ul class="footer__links">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Спецпредложения</a></li>
+                        <li><a href="#">Бизнес предложения</a></li>
+                        <li><a href="#">Твоё будущее</a></li>
+                        <li><a href="#">Защита себя и близких</a></li>
+                        <li><a href="#">Защита сотрудников</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column footer__column-submenu">
+                    <ul>
+                        <li><a href="#">Страховая документация</a></li>
+                        <li><a href="#">Финансовые показатели</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Карта сайта</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column footer__column-address">
+                    <address>
+                        <p>
+                            125252, г. Москва,
+                            ул. Зорге, д. 22 А, офис 811
+                        </p>
+                    </address>
+                    <address>
+                        <p>
+                            График работы главного офиса
+                            125252, г. Москва,
+                            ул. Зорге, д. 22 А, офис 811
+                            Пн. - Чт. с 9:00 до 18:00
+                            Пт. с 9:00 до 16:45
+                            Сб-Вс выходной
+                        </p>
+                    </address>
+                    <a href="#" class="button">Как добраться</a>
+                </div>
+                <div class="footer__column footer__column-social-links">
+                    <address>
+                        <p>
+                            Адрес для почтовых отправлений:
+                            125252, г. Москва, а/я 28
+                        </p>
+                    </address>
+                    <a href="tel:+74959671301" class="footer__link footer__link-tel">тел.: +7 495 967 13 01</a>
+                    <p class="footer__link">
+                        Email для связи с нами
+                    </p>
+                    <a class="footer__link" href="mailto:info@prolife.ru">
+                        info@prolife.ru
+                    </a>
+                    <div class="footer__social">
+                        <a href="#"><img src="img/vk.svg" alt=""></a>
+                        <a href="#"><img src="img/telegramm.svg" alt=""></a>
+                        <a href="#"><img src="img/facebook.svg" alt=""></a>
+                        <a href="#"><img src="img/instagramm.svg" alt=""></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="footer__sub-text">
+        <div class="footer__sub-text-inner container">
+            © 1998 – 2021 ООО СК "ДЕЛО ЖИЗНИ". Все права защищены. Полное или
+            частичное копирование любых материалов сайта
+            запрещено. ООО СК «ДЕЛО ЖИЗНИ» осуществляет свою деятельность на основании лицензий ЦБ РФ:СЖ № 3870
+            от 24.03.2017СЛ №
+            3870 от 24.03.2017 Органом, осуществляющим полномочия по контролю и надзору за ООО СК «ДЕЛО ЖИЗНИ»
+            является Банк России.
+            Адрес официального сайта Банк России - www.cbr.ru.
+        </div>
+    </div>
+</footer>    </div>
+    <script src="https://unpkg.com/swiper@7.0.0/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
