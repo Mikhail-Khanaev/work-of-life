@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход в личный кабинет</title>
+    <title>Регистрация</title>
 
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
@@ -72,76 +71,114 @@
         </div>
 
     </div>
-</header>        <main class="page">
-            <section class="main padding">
-                <div class="container main__container">
-                    <div class="main__inner">
-                        <div class="main__column main__column-form">
+</header>
+        <main class="page">
+            <section class="main-reg padding">
+                <div class="container main-reg__container">
+                    <div class="main-reg__inner">
+                        <div class="form">
+                            <h1 class="form__title">Регистрация</h1>
 
-                            <div class="form">
-                                <form action="#" id="form" class="form__body">
+                            <form action="#" id="form" class="form__body">
 
-                                    <h1 class="form__title">Добрый день!</h1>
-                                    <div class="form__item">
-                                        <label for="formLogin" class="form__label">Логин</label>
-                                        <input id="formLogin" type="text" name="login" class="form__input email req"
-                                            placeholder="Введите свой номер телефона или email">
+                                <div class="form__row form__row-top">
+                                    <div class="form__column form__column-first">
+                                        <div class="form__item">
+                                            <label class="form__label" for="formSurname">Фамилия</label>
+                                            <input id="formSurname" type="text" placeholder="Иванов" name="surname"
+                                                class="form__input req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formName">Имя</label>
+                                            <input id="formName" type="text" placeholder="Иван" name="name"
+                                                class="form__input req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formPatronymic">Отчество</label>
+                                            <input id="formPatronymic" placeholder="Иванович" type="text"
+                                                name="patronymic" class="form__input req">
+                                        </div>
                                     </div>
-                                    <div class="form__item form__input-password">
-                                        <label for="formPassword" class="form__label">Пароль</label>
-                                        <input id="formPassword" type="text" style="-webkit-text-security: disc;"
-                                            name="password" class="form__input req" placeholder="Введите пароль">
-                                        <a class="forgot" href="#">Забыли пароль?</a>
-                                    </div>
-                                    <button type="submit" class="form__button">Войти</button>
-                                    <a href="registration.html" class="reg">Зарегистрироваться</a>
-                                </form>
-                            </div>
+                                    <div class="form__column">
+                                        <div class="form__item">
+                                            <label class="form__label" for="formTel">Телефон</label>
+                                            <input id="formTel" data-mask="+7 (___) ___-__-__"
+                                                placeholder="+7(___)___-__-__" type="tel" name="patronymic"
+                                                class="form__input tel req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formMail">E-mail</label>
+                                            <input id="formMail" placeholder="mail@example.ru" type="text"
+                                                name="patronymic" class="form__input email req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formPassword">Пароль</label>
+                                            <input id="formPassword" placeholder="Придумайте пароль" type="password"
+                                                name="patronymic" class="form__input form__password password req">
+                                            <div class="password__btn"></div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formPasswordAgreement">Подтверждение
+                                                пароля</label>
+                                            <input id="formPasswordAgreement" placeholder="Подтвердите пароль"
+                                                type="password" name="patronymic"
+                                                class="form__input form__password password req">
+                                            <div class="password__btn"></div>
 
-                        </div>
-                        <div class="main__column main__column-text">
-                            <div class="main__column-text-row text-top">
-                                <div class="text-top-text">причин зарегис трироваться</div>
-                                <div class="text-top-num">5</div>
-                            </div>
-                            <div class="main__column-text-row text-bottom">
-                                <div class="text-bottom-item">
-                                    <div class="text-image">
-                                        <img src="img/account/1.svg" alt="#1">
+                                        </div>
                                     </div>
-                                    <div class="text-text">быстрые <span class="item-subtext">и удобные</span> правки
+                                    <div data-da=".form__column-first,1200,last" class="form__column">
+                                        <div class="form__item-wrapper">
+                                            <div class="form__item">
+                                                <label class="form__label" for="date">Дата рожденья</label>
+                                                <input class="form__input date req" name="date" placeholder="ДД.ММ.ГГГГ"
+                                                    type="text" onkeyup="
+        var v = this.value;
+        if (v.match(/^\d{2}$/) !== null) {
+            this.value = v + '/';
+        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+            this.value = v + '/';
+        }" maxlength="10">
+                                            </div>
+                                            <div class="form__item">
+                                                <label class="form__label" for="card">Номер карты клиента</label>
+                                                <input class="form__input" name="card" placeholder="123456" type="text">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="text-bottom-item">
-                                    <div class="text-image">
-                                        <img src="img/account/2.svg" alt="#2">
+
+                                <div class="form__row form__row-bottom">
+                                    <div class="form__item form__item-checkbox">
+                                        <div class="checkbox">
+                                            <div class="checkbox__item">
+                                                <input id="formSub" type="checkbox" name="subcsribe"
+                                                    class="checkbox__input" checked>
+                                                <label for="formSub" class="checkbox__label">Подписка на
+                                                    рассылку</label>
+                                            </div>
+                                            <div class="checkbox__item">
+                                                <input id="formAgreement" checked type="checkbox" name="agreement"
+                                                    class="checkbox__input req">
+                                                <label for="formAgreement" class="checkbox__label req">Согласие на
+                                                    обработку
+                                                    перональных
+                                                    данных</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text-text">надежность</div>
-                                </div>
-                                <div class="text-bottom-item">
-                                    <div class="text-image">
-                                        <img src="img/account/3.svg" alt="#3">
+                                    <div class="form__item form__item-button">
+                                        <button type="submit" class="form__button">Зарегестрироваться</button>
                                     </div>
-                                    <div class="text-text">приватность</div>
                                 </div>
-                                <div class="text-bottom-item">
-                                    <div class="text-image">
-                                        <img src="img/account/4.svg" alt="#4">
-                                    </div>
-                                    <div class="text-text">все документы в одном месте</div>
-                                </div>
-                                <div class="text-bottom-item">
-                                    <div class="text-image">
-                                        <img src="img/account/5.svg" alt="#5">
-                                    </div>
-                                    <div class="text-text">индивидувльный подход</div>
-                                </div>
-                            </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+
 <footer class="footer">
     <div class="container">
         <div class="footer__inner padding">

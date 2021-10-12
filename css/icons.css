@@ -24,52 +24,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.icon-inf:before {
-    content: "\e90b";
+.icon-see:before {
+    content: "\e90d";
 }
-.icon-instagramm .path1:before {
-    content: "\e900";
-    color: rgb(255, 255, 255);
-}
-.icon-instagramm .path2:before {
-    content: "\e901";
-    margin-left: -1em;
-    color: rgb(168, 144, 96);
+.icon-inform:before {
+    content: "\e90c";
 }
 .icon-lk:before {
     content: "\e902";
 }
 .icon-more:before {
     content: "\e903";
-    color: #a89060;
-}
-.icon-telegramm .path1:before {
-    content: "\e904";
-    color: rgb(255, 255, 255);
-}
-.icon-telegramm .path2:before {
-    content: "\e905";
-    margin-left: -1em;
-    color: rgb(168, 144, 96);
-}
-.icon-vk .path1:before {
-    content: "\e906";
-    color: rgb(255, 255, 255);
-}
-.icon-vk .path2:before {
-    content: "\e907";
-    margin-left: -1em;
-    color: rgb(168, 144, 96);
 }
 .icon-arrow:before {
     content: "\e908";
-}
-.icon-facebook .path1:before {
-    content: "\e909";
-    color: rgb(255, 255, 255);
-}
-.icon-facebook .path2:before {
-    content: "\e90a";
-    margin-left: -1em;
-    color: rgb(168, 144, 96);
 }
