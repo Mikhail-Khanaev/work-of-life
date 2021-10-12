@@ -130,9 +130,9 @@
                                     <div data-da=".form__column-first,1200,last" class="form__column">
                                         <div class="form__item-wrapper">
                                             <div class="form__item">
-                                                <label class="form__label" for="date">Дата рожденья</label>
-                                                <input class="form__input date req" name="date" placeholder="ДД.ММ.ГГГГ"
-                                                    type="text" onkeyup="
+                                                <label class="form__label" for="client-carddate">Дата рожденья</label>
+                                                <input class="form__input date req" name="client-carddate"
+                                                    placeholder="ДД.ММ.ГГГГ" type="text" onkeyup="
         var v = this.value;
         if (v.match(/^\d{2}$/) !== null) {
             this.value = v + '/';
@@ -141,8 +141,9 @@
         }" maxlength="10">
                                             </div>
                                             <div class="form__item">
-                                                <label class="form__label" for="card">Номер карты клиента</label>
-                                                <input class="form__input" name="card" placeholder="123456" type="text">
+                                                <label class="form__label" for="client-card">Номер карты клиента</label>
+                                                <input class="form__input" name="client-card" placeholder="123456"
+                                                    type="text">
                                             </div>
                                         </div>
                                     </div>
