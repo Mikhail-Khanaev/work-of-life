@@ -165,7 +165,7 @@
                                                 <p class="card-text">Здравствуйте, <br><span>Иван</span></p>
                                             </div>
 
-                                            <div class="tabs__card-row tabs__card-row-img">
+                                            <div class="tabs__card-row tabs__card-row-img" data-tab="#tab_1">
                                                 <div class="tabs__card-image">
                                                     <a href="#">
                                                         <img src="img/avatar.png" alt="">
@@ -195,11 +195,77 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tabs__card tabs__card-status">
+                                        <div class="tabs__card-row tabs__card-row-status">
+                                            <div class="tabs__card-row-status-wrapper">
+                                                <img src="img/22.svg" alt="">
+                                                <p class="tabs__card-text-status">Статус моего полиса</p>
+                                            </div>
+                                        </div>
+                                        <div class="tabs__card-row-content">
+                                            <div class="card-row-content-top">
+                                                <div class="card-row-content-top-wrapper">
+                                                    <div class="card-row-content-top-text">Программа
+                                                        <br><span>«Здоровье»</span>
+                                                    </div>
+                                                    <div class="card-row-content-top-image">
+                                                        <img src="img/21.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="card-row-content-top-date">действует до 17.07.2025</div>
+                                            </div>
+                                            <div class="card-row-content-bottom">
+                                                <div class="timer">
+                                                    <div class="timer__line"></div>
+                                                    <div class="timer__body">
+                                                        <div class="timer__counter">
+                                                            <p>осталось <span>1504</span> дня</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tabs__card-row tabs__card-row-button">
+                                            <a class="tabs__card-link-button" href="#">подробнее</a>
+                                        </div>
+                                    </div>
+                                    <div class="tabs__card tabs__card-status">
+                                        <div class="tabs__card-row tabs__card-row-status tabs__card-row-status-second">
+                                            <div
+                                                class="tabs__card-row-status-wrapper tabs__card-row-status-wrapper-second">
+                                                <img src="img/23.svg" alt="">
+                                                <p class="tabs__card-text-status">Рекомендуемое для Вас</p>
+                                            </div>
+                                        </div>
+                                        <div class="tabs__card-row-content">
+                                            <a href="#" class="tabs__card-content-row">
+                                                <div class="card-row-content-top-text">Программа
+                                                    <br><span>«Здоровье»</span>
+                                                </div>
+                                                <img src="img/more2.svg" alt="">
+                                            </a>
+                                            <a href="#" class="tabs__card-content-row">
+                                                <div class="card-row-content-top-text">Программа
+                                                    <br><span>«Непоседа»</span>
+                                                </div>
+                                                <img src="img/more2.svg" alt="">
+                                            </a>
+                                            <a href="#" class="tabs__card-content-row">
+                                                <div class="card-row-content-top-text">Онлайн
+                                                    <br><span>ДМС</span>
+                                                </div>
+                                                <img src="img/more2.svg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="tabs__card-row tabs__card-row-button">
+                                            <a class="tabs__card-link-button" href="#">Смотреть все</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tabs__item" id="tab_1">
+                            <div class="tabs__item tabs__item-profile" id="tab_1">
+                                <div class="profile__form-title"></div>
                                 <div class="profile__form">
-                                    <div class="profile__form-title"></div>
                                     <form action="#" class="form__body form__body-left">
                                         <div class="form__item">
                                             <label class="form__label" for="formName">Имя</label>
@@ -221,9 +287,76 @@
                                         <div class="form__item form__item-button">
                                             <button type="submit" class="form__button">Отправить запрос</button>
                                         </div>
+                                        <form action="#" class="form__body form__body-bottom">
+                                            <div class="form__item">
+                                                <label class="form__label" for="formTel">Телефон</label>
+                                                <input id="formTel" data-mask="+7 (___) ___-__-__"
+                                                    placeholder="+7(___)___-__-__" type="tel" name="formTel"
+                                                    class="form__input tel req">
+                                            </div>
+                                            <div class="form__item">
+                                                <label class="form__label" for="city">Город</label>
+                                                <input id="formCity" type="text" placeholder="г. Санкт-Петербург"
+                                                    name="city" class="form__input req">
+                                            </div>
+                                            <div class="form__item form__item-button">
+                                                <button type="submit" class="form__button-tel">Сохранить
+                                                    изменения</button>
+                                            </div>
+                                        </form>
                                     </form>
-                                    <form action="#" class="form__body"></form>
-                                    <form action="#" class="form__body"></form>
+                                    <form action="#" class="form__body">
+                                        <div class="form__item">
+                                            <label class="form__label" for="formMail">E-mail</label>
+                                            <input disabled id="formMail" placeholder="ivanovich2021@mail.ru"
+                                                type="text" name="patronymic" class="form__input email req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formMail">E-mail мастер</label>
+                                            <input disabled id="formMail" placeholder="ivanovich2021@mail.ru"
+                                                type="text" name="patronymic" class="form__input email req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formPassword">Текущий пароль</label>
+                                            <input id="formPassword" placeholder="Текущий пароль" type="text"
+                                                style="-webkit-text-security: disc;" name="formpassword"
+                                                class="form__input form__password password req">
+                                            <div class="password__btn"></div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formPassword">Новый пароль</label>
+                                            <input id="formPassword" placeholder="Придумайте пароль" type="text"
+                                                style="-webkit-text-security: disc;" name="formpassword"
+                                                class="form__input form__password password req">
+                                            <div class="password__btn"></div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formPassword">Повторите пароль</label>
+                                            <input id="formPassword" placeholder="Повторите пароль" type="text"
+                                                style="-webkit-text-security: disc;" name="formpassword"
+                                                class="form__input form__password password req">
+                                            <div class="password__btn"></div>
+                                        </div>
+                                        <div class="form__item form__item-button">
+                                            <button type="submit" class="form__button">Изменить пароль</button>
+                                        </div>
+                                    </form>
+                                    <!-- <form action="#" class="form__body form__body-bottom">
+                                        <div class="form__item">
+                                            <label class="form__label" for="formTel">Телефон</label>
+                                            <input id="formTel" data-mask="+7 (___) ___-__-__"
+                                                placeholder="+7(___)___-__-__" type="tel" name="formTel"
+                                                class="form__input tel req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="city">Город</label>
+                                            <input id="formCity" type="text" placeholder="г. Санкт-Петербург"
+                                                name="city" class="form__input req">
+                                        </div>
+                                        <div class="form__item form__item-button">
+                                            <button type="submit" class="form__button-tel">Сохранить изменения</button>
+                                        </div>
+                                    </form> -->
 
                                 </div>
                             </div>
