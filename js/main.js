@@ -1,1 +1,1208 @@
-const swiperOffer=new Swiper(".swiper-offer",{slidesPerView:4,spaceBetween:35,scrollbar:{el:".swiper-offer .swiper-scrollbar",draggable:!0},breakpoints:{1100:{slidesPerView:4},768:{slidesPerView:2},320:{slidesPerView:1,centeredSlides:!0}}}),swiperNews=new Swiper(".news__cards",{slidesPerView:3,spaceBetween:35,scrollbar:{el:".news__cards .swiper-scrollbar",draggable:!0},breakpoints:{1100:{slidesPerView:2},768:{slidesPerView:2},320:{slidesPerView:1,centeredSlides:!0}}});document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("form");function t(e){e.parentElement.classList.add("error"),e.classList.add("error")}function n(e){e.parentElement.classList.remove("error"),e.classList.remove("error")}function s(e){return!/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/.test(e.value)}function o(e){return!/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(e.value)}function i(e){return!/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/.test(e.value)}e.addEventListener("submit",(async function(l){l.preventDefault();let a=function(e){let l=0,a=document.querySelectorAll(".req");for(let e=0;e<a.length;e++){const c=a[e];n(c),c.classList.contains("email")?s(c)&&(t(c),l++):"checkbox"===c.getAttribute("type")&&0==c.checked?(t(c),l++):c.classList.contains("tel")?o(c)&&(t(c),l++):c.classList.contains("password")&&""!=document.getElementById("formPassword").value?document.getElementById("formPassword").value!=document.getElementById("formPasswordAgreement").value&&(t(c),l++):c.classList.contains("date")?i(c)&&(t(c),l++):""==c.value&&(t(c),l++)}return l}(),c=new FormData(e);if(c.append("image",formImage.files[0]),0===a){e.classList.add("_sending");let t=await fetch("sendmail.php",{method:"POST",body:c});if(t.ok){let n=await t.json();alert(n.message),formPreview.innerHTML="",e.reset(),e.classList.remove("_sending")}else alert("Ошибка"),e.classList.remove("_sending")}else alert("Заполните обязательные поля")}))}));const btnPass=document.querySelectorAll(".password__btn"),inputPass=document.querySelectorAll(".form__password");if(inputPass.length>0)for(let e=0;e<btnPass.length;e++){const t=btnPass[e],n=inputPass[e];t.addEventListener("click",(function(e){t.classList.toggle("active"),"disc"===n.style.webkitTextSecurity?n.style.webkitTextSecurity="none":n.style.webkitTextSecurity="disc"}))}function InputMask(e){if(this.el=this.getElement(e.selector),!this.el)return console.log("Что-то не так с селектором");this.layout=e.layout||"+_ (___) ___-__-__",this.maskreg=this.getRegexp(),this.setListeners()}window.addEventListener("DOMContentLoaded",(function(){var e=document.querySelectorAll('input[type="tel"]');Array.prototype.forEach.call(e,(function(e){new InputMask({selector:e,layout:e.dataset.mask})}))})),InputMask.prototype.getRegexp=function(){var e=this.layout.replace(/_/g,"\\d");return e=(e=(e=(e=e.replace(/\(/g,"\\(")).replace(/\)/g,"\\)")).replace(/\+/g,"\\+")).replace(/\s/g,"\\s")},InputMask.prototype.mask=function(e){var t=e.target,n=this.layout,s=0,o=n.replace(/\D/g,""),i=t.value.replace(/\D/g,"");(o.length>=i.length&&(i=o),t.value=n.replace(/./g,(function(e){return/[_\d]/.test(e)&&s<i.length?i.charAt(s++):s>=i.length?"":e})),"blur"==e.type)?new RegExp(this.maskreg).test(t.value)||(t.value=""):this.setCursorPosition(t.value.length,t)},InputMask.prototype.setCursorPosition=function(e,t){if(t.focus(),t.setSelectionRange)t.setSelectionRange(e,e);else if(t.createTextRange){var n=t.createTextRange();n.collapse(!0),n.moveEnd("character",e),n.moveStart("character",e),n.select()}},InputMask.prototype.setListeners=function(){this.el.addEventListener("input",this.mask.bind(this),!1),this.el.addEventListener("focus",this.mask.bind(this),!1),this.el.addEventListener("blur",this.mask.bind(this),!1)},InputMask.prototype.getElement=function(e){if(void 0===e)return!1;if(this.isElement(e))return e;if("string"==typeof e){var t=document.querySelector(e);if(this.isElement(t))return t}return!1},InputMask.prototype.isElement=function(e){return e instanceof Element||e instanceof HTMLDocument};const tabsBtn=document.querySelectorAll(".tabs__nav-btn"),tabsItems=document.querySelectorAll(".tabs__item");tabsItems.length>0&&(tabsBtn.forEach((function(e){e.addEventListener("click",(function(){let t=e,n=t.getAttribute("data-tab"),s=document.querySelector(n);t.classList.contains("active")||(tabsBtn.forEach((function(e){e.classList.remove("active")})),tabsItems.forEach((function(e){e.classList.remove("active")})),t.classList.add("active"),s.classList.add("active"))}))})),document.querySelector(".tabs__nav-btn-top").click());const iconTabs=document.querySelector(".tabs__icon"),tabsBody=document.querySelector(".tabs__nav-bottom"),profileInner=document.querySelector(".profile__inner"),tabItems=document.querySelectorAll(".tabs__nav-btn");if(iconTabs){iconTabs.addEventListener("click",(function(e){iconTabs.classList.toggle("active"),tabsBody.classList.toggle("active"),profileInner.classList.toggle("active");for(let e=0;e<tabItems.length;e++){const t=tabItems[e];t.addEventListener("click",(function(){t.classList.add("active")}))}}));for(let e=0;e<tabItems.length;e++){const t=tabItems[e];t.addEventListener("click",(function(){t.classList.contains("active")&&(iconTabs.classList.remove("active"),tabsBody.classList.remove("active"),profileInner.classList.remove("active"))}))}}let spollers=document.querySelectorAll("._spoller"),spollersGo=!0;if(spollers.length>0)for(let e=0;e<spollers.length;e++){const t=spollers[e];t.addEventListener("click",(function(e){if(spollersGo){if(spollersGo=!1,t.classList.contains("_spoller-992")&&window.innerWidth>992)return!1;if(t.classList.contains("_spoller-768")&&window.innerWidth>768)return!1;if(t.closest("._spollers").classList.contains("_one")){let e=t.closest("._spollers").querySelectorAll("._spoller");for(let n=0;n<e.length;n++){let s=e[n];s!=t&&(s.classList.remove("_active"),_slideUp(s.nextElementSibling))}}t.classList.toggle("_active"),_slideToggle(t.nextElementSibling),setTimeout((function(){spollersGo=!0}),500)}}))}const descriptionTabsBtn=document.querySelectorAll(".description__tab-btn"),descriptionTabsItems=document.querySelectorAll(".description__tabs-item");function onDescriptionTabClick(e){e.addEventListener("click",(function(){let t=e,n=t.getAttribute("data-tab"),s=document.querySelector(n);t.classList.contains("active")||(descriptionTabsBtn.forEach((function(e){e.classList.remove("active")})),descriptionTabsItems.forEach((function(e){e.classList.remove("active")})),t.classList.add("active"),s.classList.add("active"))}))}descriptionTabsBtn.forEach(onDescriptionTabClick),document.querySelector(".description__tab-btn").click();const isMobile={Android:function(){return navigator.userAgent.match(/Android/i)},BlackBerry:function(){return navigator.userAgent.match(/BlackBerry/i)},iOS:function(){return navigator.userAgent.match(/iPhone|iPad|iPod/i)},Opera:function(){return navigator.userAgent.match(/Opera Mini/i)},Windows:function(){return navigator.userAgent.match(/IEMobile/i)},any:function(){return isMobile.Android()||isMobile.BlackBerry()||isMobile.iOS()||isMobile.Opera()||isMobile.Windows()}};if(isMobile.any()){document.body.classList.add("touch");let e=document.querySelectorAll(".menu__arrow");if(e.length>0)for(let t=0;t<e.length;t++){const n=e[t];n.addEventListener("click",(function(e){n.parentElement.classList.toggle("active")}))}}else document.body.classList.add("pc");const iconMenu=document.querySelector(".menu__icon"),menuBody=document.querySelector(".menu__body"),bodyPage=document.querySelector(".page");iconMenu&&iconMenu.addEventListener("click",(function(e){document.body.classList.toggle("lock"),iconMenu.classList.toggle("active"),menuBody.classList.toggle("active"),bodyPage.classList.toggle("active")}));const menuLinks=document.querySelectorAll(".menu__link[data-goto]");if(menuLinks.length>0){for(let e=0;e<menuLinks.length;e++){menuLinks[e].addEventListener("click",onMenuClick)}function onMenuClick(e){const t=e.target;if(t.dataset.goto&&document.querySelector(t.dataset.goto)){const n=document.querySelector(t.dataset.goto).getBoundingClientRect().top+pageYOffset-document.querySelector("header").offsetHeight;iconMenu.classList.contains("active")&&(document.body.classList.remove("lock"),iconMenu.classList.remove("active"),menuBody.classList.remove("active")),window.scrollTo({top:n,behavior:"smooth"}),e.preventDefault()}}}function DynamicAdapt(e){this.type=e}DynamicAdapt.prototype.init=function(){const e=this;this.оbjects=[],this.daClassname="_dynamic_adapt_",this.nodes=document.querySelectorAll("[data-da]");for(let e=0;e<this.nodes.length;e++){const t=this.nodes[e],n=t.dataset.da.trim().split(","),s={};s.element=t,s.parent=t.parentNode,s.destination=document.querySelector(n[0].trim()),s.breakpoint=n[1]?n[1].trim():"767",s.place=n[2]?n[2].trim():"last",s.index=this.indexInParent(s.parent,s.element),this.оbjects.push(s)}this.arraySort(this.оbjects),this.mediaQueries=Array.prototype.map.call(this.оbjects,(function(e){return"("+this.type+"-width: "+e.breakpoint+"px),"+e.breakpoint}),this),this.mediaQueries=Array.prototype.filter.call(this.mediaQueries,(function(e,t,n){return Array.prototype.indexOf.call(n,e)===t}));for(let t=0;t<this.mediaQueries.length;t++){const n=this.mediaQueries[t],s=String.prototype.split.call(n,","),o=window.matchMedia(s[0]),i=s[1],l=Array.prototype.filter.call(this.оbjects,(function(e){return e.breakpoint===i}));o.addListener((function(){e.mediaHandler(o,l)})),this.mediaHandler(o,l)}},DynamicAdapt.prototype.mediaHandler=function(e,t){if(e.matches)for(let e=0;e<t.length;e++){const n=t[e];n.index=this.indexInParent(n.parent,n.element),this.moveTo(n.place,n.element,n.destination)}else for(let e=0;e<t.length;e++){const n=t[e];n.element.classList.contains(this.daClassname)&&this.moveBack(n.parent,n.element,n.index)}},DynamicAdapt.prototype.moveTo=function(e,t,n){t.classList.add(this.daClassname),"last"===e||e>=n.children.length?n.insertAdjacentElement("beforeend",t):"first"!==e?n.children[e].insertAdjacentElement("beforebegin",t):n.insertAdjacentElement("afterbegin",t)},DynamicAdapt.prototype.moveBack=function(e,t,n){t.classList.remove(this.daClassname),void 0!==e.children[n]?e.children[n].insertAdjacentElement("beforebegin",t):e.insertAdjacentElement("beforeend",t)},DynamicAdapt.prototype.indexInParent=function(e,t){const n=Array.prototype.slice.call(e.children);return Array.prototype.indexOf.call(n,t)},DynamicAdapt.prototype.arraySort=function(e){"min"===this.type?Array.prototype.sort.call(e,(function(e,t){return e.breakpoint===t.breakpoint?e.place===t.place?0:"first"===e.place||"last"===t.place?-1:"last"===e.place||"first"===t.place?1:e.place-t.place:e.breakpoint-t.breakpoint})):Array.prototype.sort.call(e,(function(e,t){return e.breakpoint===t.breakpoint?e.place===t.place?0:"first"===e.place||"last"===t.place?1:"last"===e.place||"first"===t.place?-1:t.place-e.place:t.breakpoint-e.breakpoint}))};const da=new DynamicAdapt("max");da.init();const popupLinks=document.querySelectorAll(".popup-link"),body=document.querySelector("body"),lockPadding=document.querySelectorAll(".lock-padding");let unlock=!0;const timeout=500;if(popupLinks.length>0)for(let e=0;e<popupLinks.length;e++){const t=popupLinks[e];t.addEventListener("click",(function(e){const n=t.getAttribute("href").replace("#","");popupOpen(document.getElementById(n)),e.preventDefault()}))}const popupCloseIcon=document.querySelectorAll(".close-popup");if(popupCloseIcon.length>0)for(let e=0;e<popupCloseIcon.length;e++){const t=popupCloseIcon[e];t.addEventListener("click",(function(e){popupClose(t.closest(".popup")),e.preventDefault()}))}function popupOpen(e){if(e&&unlock){const t=document.querySelector(".popup.open");t?popupClose(t,!1):bodyLock(),e.classList.add("open"),e.addEventListener("click",(function(e){e.target.closest(".popup__content")||popupClose(e.target.closest(".popup"))}))}}function popupClose(e,t=!0){unlock&&(e.classList.remove("open"),t&&bodyUnLock())}function bodyLock(){const e=window.innerWidth-document.querySelector(".wrapper").offsetWidth+"px";if(lockPadding.length>0)for(let t=0;t<lockPadding.length;t++){lockPadding[t].style.paddingRight=e}body.style.paddingRight=e,body.classList.add("lock"),unlock=!1,setTimeout((function(){unlock=!0}),500)}function bodyUnLock(){setTimeout((function(){if(lockPadding.length>0)for(let e=0;e<lockPadding.length;e++){lockPadding[e].style.paddingRight="0px"}body.style.paddingRight="0px",body.classList.remove("lock")}),500),unlock=!1,setTimeout((function(){unlock=!0}),500)}document.addEventListener("keydown",(function(e){if(27===e.which){popupClose(document.querySelector(".popup.open"))}}));let _slideUp=(e,t=500)=>{e.style.transitionProperty="height, margin, padding",e.style.transitionDuration=t+"ms",e.style.height=e.offsetHeight+"px",e.offsetHeight,e.style.overflow="hidden",e.style.height=0,e.style.paddingTop=0,e.style.paddingBottom=0,e.style.marginTop=0,e.style.marginBottom=0,window.setTimeout((()=>{e.style.display="none",e.style.removeProperty("height"),e.style.removeProperty("padding-top"),e.style.removeProperty("padding-bottom"),e.style.removeProperty("margin-top"),e.style.removeProperty("margin-bottom"),e.style.removeProperty("overflow"),e.style.removeProperty("transition-duration"),e.style.removeProperty("transition-property"),e.classList.remove("_slide")}),t)},_slideDown=(e,t=500)=>{e.style.removeProperty("display");let n=window.getComputedStyle(e).display;"none"===n&&(n="block"),e.style.display=n;let s=e.offsetHeight;e.style.overflow="hidden",e.style.height=0,e.style.paddingTop=0,e.style.paddingBottom=0,e.style.marginTop=0,e.style.marginBottom=0,e.offsetHeight,e.style.transitionProperty="height, margin, padding",e.style.transitionDuration=t+"ms",e.style.height=s+"px",e.style.removeProperty("padding-top"),e.style.removeProperty("padding-bottom"),e.style.removeProperty("margin-top"),e.style.removeProperty("margin-bottom"),window.setTimeout((()=>{e.style.removeProperty("height"),e.style.removeProperty("overflow"),e.style.removeProperty("transition-duration"),e.style.removeProperty("transition-property"),e.classList.remove("_slide")}),t)},_slideToggle=(e,t=500)=>{if(!e.classList.contains("_slide"))return e.classList.add("_slide"),"none"===window.getComputedStyle(e).display?_slideDown(e,t):_slideUp(e,t)},selects=document.getElementsByTagName("select");function selects_init(){for(let e=0;e<selects.length;e++){select_init(selects[e])}document.addEventListener("click",(function(e){selects_close(e)})),document.addEventListener("keydown",(function(e){"Escape"===e.code&&selects_close(e)}))}function selects_close(e){const t=document.querySelectorAll(".select");if(!e.target.closest(".select"))for(let e=0;e<t.length;e++){const n=t[e],s=n.querySelector(".select__options");n.classList.remove("_active"),_slideUp(s,100)}}function select_init(e){const t=e.parentElement,n=e.getAttribute("class"),s=e.querySelector("option:checked");e.setAttribute("data-default",s.value),e.style.display="none",t.insertAdjacentHTML("beforeend",'<div class="select select_'+n+'"></div>'),e.parentElement.querySelector(".select").appendChild(e),select_item(e)}function select_item(e){const t=e.parentElement,n=t.querySelector(".select__item"),s=e.querySelectorAll("option"),o=e.querySelector("option:checked").text,i=e.getAttribute("data-type");n&&n.remove();let l="";l="input"==i?'<div class="select__value icon-select-arrow"><input autocomplete="off" type="text" name="form[]" value="'+o+'" data-error="Ошибка" data-value="'+o+'" class="select__input"></div>':'<div class="select__value icon-select-arrow"><span>'+o+"</span></div>",t.insertAdjacentHTML("beforeend",'<div class="select__item"><div class="select__title">'+l+'</div><div class="select__options">'+select_get_options(s)+"</div></div></div>"),select_actions(e,t)}function select_actions(e,t){const n=t.querySelector(".select__item"),s=t.querySelector(".select__options"),o=t.querySelectorAll(".select__option"),i=e.getAttribute("data-type"),l=t.querySelector(".select__input");n.addEventListener("click",(function(){let e=document.querySelectorAll(".select");for(let t=0;t<e.length;t++){const s=e[t],o=s.querySelector(".select__options");s!=n.closest(".select")&&(s.classList.remove("_active"),_slideUp(o,100))}_slideToggle(s,100),t.classList.toggle("_active")}));for(let n=0;n<o.length;n++){const s=o[n],a=s.getAttribute("data-value"),c=s.innerHTML;"input"==i?l.addEventListener("keyup",select_search):s.getAttribute("data-value")==e.value&&(s.style.display="none"),s.addEventListener("click",(function(){for(let e=0;e<o.length;e++){o[e].style.display="block"}"input"==i?(l.value=c,e.value=a):(t.querySelector(".select__value").innerHTML="<span>"+c+"</span>",e.value=a,s.style.display="none")}))}}function select_get_options(e){if(e){let t="";for(let n=0;n<e.length;n++){const s=e[n],o=s.value;if(""!=o){t=t+'<div data-value="'+o+'" class="select__option">'+s.text+"</div>"}}return t}}function select_search(e){e.target.closest(".select ").querySelector(".select__options");let t=e.target.closest(".select ").querySelectorAll(".select__option"),n=e.target.value.toUpperCase();for(let e=0;e<t.length;e++){let s=t[e];(s.textContent||s.innerText).toUpperCase().indexOf(n)>-1?s.style.display="":s.style.display="none"}}function selects_update_all(){let e=document.querySelectorAll("select");if(e)for(let t=0;t<e.length;t++){select_item(e[t])}}selects.length>0&&selects_init();let inputs=document.querySelectorAll("input[data-value],textarea[data-value]");function inputs_init(e){if(e.length>0)for(let t=0;t<e.length;t++){const n=e[t],s=n.getAttribute("data-value");input_placeholder_add(n),""!=n.value&&n.value!=s&&input_focus_add(n),n.addEventListener("focus",(function(e){n.value==s&&(input_focus_add(n),n.value=""),"pass"===n.getAttribute("data-type")&&n.setAttribute("type","password"),n.classList.contains("_date"),n.classList.contains("_phone")&&(n.classList.add("_mask"),Inputmask("+375 (99) 9999999",{clearIncomplete:!0,clearMaskOnLostFocus:!0,onincomplete:function(){input_clear_mask(n,s)}}).mask(n)),n.classList.contains("_digital")&&(n.classList.add("_mask"),Inputmask("9{1,}",{placeholder:"",clearIncomplete:!0,clearMaskOnLostFocus:!0,onincomplete:function(){input_clear_mask(n,s)}}).mask(n)),form_remove_error(n)})),n.addEventListener("blur",(function(e){""==n.value&&(n.value=s,input_focus_remove(n),n.classList.contains("_mask")&&input_clear_mask(n,s),"pass"===n.getAttribute("data-type")&&n.setAttribute("type","text"))})),n.classList.contains("_date")&&datepicker(n,{customDays:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],customMonths:["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"],formatter:(e,t,n)=>{const s=t.toLocaleDateString();e.value=s},onSelect:function(e,t,n){input_focus_add(e.el)}})}}function input_placeholder_add(e){const t=e.getAttribute("data-value");""==e.value&&""!=t&&(e.value=t)}function input_focus_add(e){e.classList.add("_focus"),e.parentElement.classList.add("_focus")}function input_focus_remove(e){e.classList.remove("_focus"),e.parentElement.classList.remove("_focus")}function input_clear_mask(e,t){e.inputmask.remove(),e.value=t,input_focus_remove(e)}inputs_init(inputs),Element.prototype.closest||(Element.prototype.closest=function(e){for(var t=this;t;){if(t.matches(e))return t;t=t.parentElement}return null}),Element.prototype.matches||(Element.prototype.matches=Element.prototype.matchesSelector||Element.prototype.webkitMatchesSelector||Element.prototype.mozMatchesSelector||Element.prototype.msMatchesSelector);
+
+const swiperOffer = new Swiper(".swiper-offer", {
+    slidesPerView: 4,
+    spaceBetween: 35,
+    scrollbar: {
+        el: ".swiper-offer .swiper-scrollbar",
+        draggable: true,
+    },
+    breakpoints: {
+        1100: {
+            slidesPerView: 4,
+
+        },
+        768: {
+            slidesPerView: 2,
+
+        },
+        320: {
+            slidesPerView: 1,
+            centeredSlides: true,
+            // slidesPerGroup: 1,
+        }
+    }
+});
+
+const swiperNews = new Swiper(".news__cards", {
+    slidesPerView: 3,
+    spaceBetween: 35,
+    scrollbar: {
+        el: ".news__cards .swiper-scrollbar",
+        draggable: true,
+    },
+    breakpoints: {
+        1100: {
+            slidesPerView: 2,
+
+        },
+        768: {
+            slidesPerView: 2,
+
+        },
+        320: {
+            slidesPerView: 1,
+            centeredSlides: true,
+            // slidesPerGroup: 1,
+        }
+    }
+});
+
+
+// Валидация формы
+// document.addEventListener("DOMContentLoaded", function () {
+
+//     const form = document.getElementById("form");
+//     // form.addEventListener("submit", formSend);
+
+//     async function formSend(e) {
+//         e.preventDefault();
+
+//         let error = formValidate(form);
+
+//         // if (error == 0) {
+//         //     // Здесь надо будет отправлять форму, но это уже бэк
+//         // } else {
+//         //     alert("Заполните обязательные поля")
+//         // }
+//     }
+
+//     function formValidate(form) {
+//         let error = 0;
+//         let formReq = document.querySelectorAll(".req");
+
+//         for (let index = 0; index < formReq.length; index++) {
+//             const input = formReq[index];
+//             formRemoveError(input);
+
+//             if (input.classList.contains("email")) {
+//                 if ((emailTest(input))) {
+//                     formAddError(input);
+//                     error++;
+//                 }
+//             } else if (input.getAttribute("type") === "checkbox" && input.checked == false) {
+//                 formAddError(input);
+//                 error++;
+//             } else if (input.classList.contains("tel")) {
+//                 if ((telTest(input))) {
+//                     formAddError(input);
+//                     error++;
+//                 }
+//             } else if ((input.classList.contains("password")) && (document.getElementById("formPassword").value != "")) {
+//                 if (document.getElementById("formPassword").value != document.getElementById("formPasswordAgreement").value) {
+//                     formAddError(input);
+//                     error++;
+//                 }
+//             } else if (input.classList.contains("date")) {
+//                 if ((dateTest(input))) {
+//                     formAddError(input);
+//                     error++;
+//                 }
+//             } else {
+//                 if (input.value == "") {
+//                     formAddError(input);
+//                     error++;
+//                 }
+//             }
+//         }
+
+//         return error;
+
+//     }
+
+
+//     function formAddError(input) {
+//         input.parentElement.classList.add("error");
+//         input.classList.add("error");
+//     }
+
+//     function formRemoveError(input) {
+//         input.parentElement.classList.remove("error");
+//         input.classList.remove("error");
+//     }
+
+//     function emailTest(input) {
+//         return !/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/.test(input.value);
+//     }
+//     function telTest(input) {
+//         return !/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(input.value);
+//     }
+//     function dateTest(input) {
+//         return !/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/.test(input.value);
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form');
+    form.addEventListener('submit', formSend);
+
+    async function formSend(e) {
+        e.preventDefault();
+
+        let error = formValidate(form);
+
+        let formData = new FormData(form);
+        formData.append('image', formImage.files[0]);
+
+        // if (error === 0) {
+        //     form.classList.add('_sending');
+        //     let response = await fetch('sendmail.php', {
+        //         method: 'POST',
+        //         body: formData
+        //     });
+        //     if (response.ok) {
+        //         let result = await response.json();
+        //         alert(result.message);
+        //         formPreview.innerHTML = '';
+        //         form.reset();
+        //         form.classList.remove('_sending');
+        //     } else {
+        //         alert("Ошибка");
+        //         form.classList.remove('_sending');
+        //     }
+        // } else {
+        //     alert('Заполните обязательные поля');
+        // }
+
+    }
+
+
+    function formValidate(form) {
+        let error = 0;
+        let formReq = document.querySelectorAll('.req');
+
+        for (let index = 0; index < formReq.length; index++) {
+            const input = formReq[index];
+            formRemoveError(input);
+
+            if (input.classList.contains("email")) {
+                if ((emailTest(input))) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if (input.getAttribute("type") === "checkbox" && input.checked == false) {
+                formAddError(input);
+                error++;
+            } else if (input.classList.contains("tel")) {
+                if ((telTest(input))) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if ((input.classList.contains("password")) && (document.getElementById("formPassword").value != "")) {
+                if (document.getElementById("formPassword").value != document.getElementById("formPasswordAgreement").value) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if (input.classList.contains("date")) {
+                if ((dateTest(input))) {
+                    formAddError(input);
+                    error++;
+                }
+            } else {
+                if (input.value == "") {
+                    formAddError(input);
+                    error++;
+                }
+            }
+        }
+        return error;
+    }
+    function formAddError(input) {
+        input.parentElement.classList.add('error');
+        input.classList.add('error');
+    }
+    function formRemoveError(input) {
+        input.parentElement.classList.remove('error');
+        input.classList.remove('error');
+    }
+    //Функция теста email
+    function emailTest(input) {
+        return !/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/.test(input.value);
+    }
+    function telTest(input) {
+        return !/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(input.value);
+    }
+    function dateTest(input) {
+        return !/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/.test(input.value);
+    }
+});
+
+
+
+const btnPass = document.querySelectorAll(".password__btn");
+const inputPass = document.querySelectorAll(".form__password");
+if (inputPass.length > 0) {
+    for (let index = 0; index < btnPass.length; index++) {
+        const btn = btnPass[index];
+        const input = inputPass[index];
+
+
+        btn.addEventListener("click", function (e) {
+            btn.classList.toggle("active");
+
+            if (input.style.webkitTextSecurity === "disc") {
+                input.style.webkitTextSecurity = "none";
+            } else {
+                input.style.webkitTextSecurity = "disc";
+            }
+        })
+    }
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+    var inputs = document.querySelectorAll('input[type="tel"]');
+
+    Array.prototype.forEach.call(inputs, function (input) {
+        new InputMask({
+            selector: input, // в качестве селектора может быть элемент, или, собственно css селектор('#input', '.input', 'input'). Если селектор - тег или класс - будет получен только первый элемент
+            layout: input.dataset.mask
+        })
+    })
+
+})
+
+function InputMask(options) {
+    this.el = this.getElement(options.selector);
+    if (!this.el) return console.log('Что-то не так с селектором');
+    this.layout = options.layout || '+_ (___) ___-__-__';
+    this.maskreg = this.getRegexp();
+
+    this.setListeners();
+}
+
+InputMask.prototype.getRegexp = function () {
+    var str = this.layout.replace(/_/g, '\\d')
+    str = str.replace(/\(/g, '\\(')
+    str = str.replace(/\)/g, '\\)')
+    str = str.replace(/\+/g, '\\+')
+    str = str.replace(/\s/g, '\\s')
+
+    return str;
+}
+
+InputMask.prototype.mask = function (e) {
+    var _this = e.target,
+        matrix = this.layout,
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = _this.value.replace(/\D/g, "");
+
+    if (def.length >= val.length) val = def;
+
+    _this.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+    });
+
+    if (e.type == "blur") {
+        var regexp = new RegExp(this.maskreg);
+        if (!regexp.test(_this.value)) _this.value = "";
+    } else {
+        this.setCursorPosition(_this.value.length, _this);
+    }
+}
+
+InputMask.prototype.setCursorPosition = function (pos, elem) {
+    elem.focus();
+    if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
+    else if (elem.createTextRange) {
+        var range = elem.createTextRange();
+        range.collapse(true);
+        range.moveEnd("character", pos);
+        range.moveStart("character", pos);
+        range.select()
+    }
+}
+
+InputMask.prototype.setListeners = function () {
+    this.el.addEventListener("input", this.mask.bind(this), false);
+    this.el.addEventListener("focus", this.mask.bind(this), false);
+    this.el.addEventListener("blur", this.mask.bind(this), false);
+}
+
+InputMask.prototype.getElement = function (selector) {
+    if (selector === undefined) return false;
+    if (this.isElement(selector)) return selector;
+    if (typeof selector == 'string') {
+        var el = document.querySelector(selector);
+        if (this.isElement(el)) return el;
+    }
+    return false
+}
+
+InputMask.prototype.isElement = function (element) {
+    return element instanceof Element || element instanceof HTMLDocument;
+}
+
+
+// Табы
+const tabsBtn = document.querySelectorAll(".tabs__nav-btn");
+const tabsItems = document.querySelectorAll(".tabs__item");
+if (tabsItems.length > 0) {
+    tabsBtn.forEach(function (item) {
+        item.addEventListener("click", function () {
+            let currentBtn = item;
+            let tabId = currentBtn.getAttribute("data-tab");
+            let currentTab = document.querySelector(tabId);
+
+            if (!currentBtn.classList.contains('active')) {
+                tabsBtn.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                tabsItems.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                currentBtn.classList.add("active");
+                currentTab.classList.add("active");
+            }
+
+
+        });
+    });
+
+    document.querySelector(".tabs__nav-btn-top").click();
+}
+const iconTabs = document.querySelector(".tabs__icon");
+const tabsBody = document.querySelector(".tabs__nav-bottom");
+const profileInner = document.querySelector(".profile__inner");
+const tabItems = document.querySelectorAll(".tabs__nav-btn");
+
+
+
+if (iconTabs) {
+    iconTabs.addEventListener("click", function (e) {
+        iconTabs.classList.toggle("active");
+        tabsBody.classList.toggle("active");
+        profileInner.classList.toggle("active");
+        for (let index = 0; index < tabItems.length; index++) {
+            const tabItem = tabItems[index];
+            tabItem.addEventListener("click", function () {
+
+                tabItem.classList.add("active");
+            });
+        }
+    });
+    for (let index = 0; index < tabItems.length; index++) {
+        const tabItem = tabItems[index];
+        tabItem.addEventListener("click", function () {
+            if (tabItem.classList.contains("active")) {
+                iconTabs.classList.remove("active");
+                tabsBody.classList.remove("active");
+                profileInner.classList.remove("active");
+            }
+        });
+    }
+}
+
+//Spollers
+let spollers = document.querySelectorAll("._spoller");
+let spollersGo = true;
+if (spollers.length > 0) {
+    for (let index = 0; index < spollers.length; index++) {
+        const spoller = spollers[index];
+        spoller.addEventListener("click", function (e) {
+            if (spollersGo) {
+                spollersGo = false;
+                if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
+                    return false;
+                }
+                if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
+                    return false;
+                }
+                if (spoller.closest('._spollers').classList.contains('_one')) {
+                    let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
+                    for (let i = 0; i < curent_spollers.length; i++) {
+                        let el = curent_spollers[i];
+                        if (el != spoller) {
+                            el.classList.remove('_active');
+                            _slideUp(el.nextElementSibling);
+                        }
+                    }
+                }
+                spoller.classList.toggle('_active');
+                _slideToggle(spoller.nextElementSibling);
+
+                setTimeout(function () {
+                    spollersGo = true;
+                }, 500);
+            }
+        });
+    }
+}
+// const descriptionTabsBtn = document.querySelectorAll(".description__tab-btn");
+// const descriptionTabsItems = document.querySelectorAll(".description__tabs-item");
+
+// descriptionTabsBtn.forEach(onDescriptionTabClick);
+
+// function onDescriptionTabClick(item) {
+//     item.addEventListener("click", function () {
+//         let currentBtn = item;
+//         let tabId = currentBtn.getAttribute("data-tab");
+//         let currentTab = document.querySelector(tabId);
+
+//         if (!currentBtn.classList.contains('active')) {
+//             descriptionTabsBtn.forEach(function (item) {
+//                 item.classList.remove('active');
+//             });
+
+//             descriptionTabsItems.forEach(function (item) {
+//                 item.classList.remove('active');
+//             });
+
+//             currentBtn.classList.add('active');
+//             currentTab.classList.add('active');
+//         }
+//     });
+// }
+
+// document.querySelector('.description__tab-btn').click();
+"use strict"
+/* =============================================== */
+// Код для меню с подменю
+/* =============================================== */
+// Определяем на каком устройстве открыт сайт
+const isMobile = {
+	Android: function () {
+		return navigator.userAgent.match(/Android/i);
+	},
+	BlackBerry: function () {
+		return navigator.userAgent.match(/BlackBerry/i);
+	},
+	iOS: function () {
+		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	},
+	Opera: function () {
+		return navigator.userAgent.match(/Opera Mini/i);
+	},
+	Windows: function () {
+		return navigator.userAgent.match(/IEMobile/i);
+	},
+	any: function () {
+		return (
+			isMobile.Android() ||
+			isMobile.BlackBerry() ||
+			isMobile.iOS() ||
+			isMobile.Opera() ||
+			isMobile.Windows());
+	}
+};
+
+// Если сайт открыт на мобильном устройстве,
+// то добавляем к body класс "touch", 
+// а если открыт на ПК, то добавляем класс "pc"
+if (isMobile.any()) {
+	document.body.classList.add("touch");
+
+	// Собираем в коллекцию все элементы с классом "menu__arrow"
+	let menuArrows = document.querySelectorAll(".menu__arrow");
+	// Если такие элементы есть, то навешиваем на каждый событие "click"
+	if (menuArrows.length > 0) {
+		for (let i = 0; i < menuArrows.length; i++) {
+			const menuArrow = menuArrows[i];
+			menuArrow.addEventListener("click", function (e) {
+				menuArrow.parentElement.classList.toggle("active"); // На родителя нашей стрелочки вешаем класс "active"
+			});
+		}
+	}
+
+} else {
+	document.body.classList.add("pc");
+}
+/* =============================================== */
+
+
+
+/* =============================================== */
+// Меню Burger
+/* =============================================== */
+const iconMenu = document.querySelector(".menu__icon");
+const menuBody = document.querySelector(".menu__body");
+const bodyPage = document.querySelector(".page");
+
+
+if (iconMenu) {
+	iconMenu.addEventListener("click", function (e) {
+		document.body.classList.toggle("lock");
+		iconMenu.classList.toggle("active");
+		menuBody.classList.toggle("active");
+		bodyPage.classList.toggle("active");
+
+	});
+}
+/* =============================================== */
+
+
+
+/* =============================================== */
+// Прокрутка при клике
+/* =============================================== */
+// Собираем массив элементов, которые имеют класс "menu__link"
+// и при этом имеют атрибут "data-goto"
+const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
+if (menuLinks.length > 0) {
+	for (let i = 0; i < menuLinks.length; i++) {
+		let menuLink = menuLinks[i];
+		menuLink.addEventListener("click", onMenuClick)
+	};
+
+	function onMenuClick(e) {
+		const menuLink = e.target;
+		if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+			const gotoBlock = document.querySelector(menuLink.dataset.goto);
+			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector("header").offsetHeight;
+
+
+			if (iconMenu.classList.contains("active")) {
+				document.body.classList.remove("lock");
+				iconMenu.classList.remove("active");
+				menuBody.classList.remove("active");
+			}
+
+			window.scrollTo({
+				top: gotoBlockValue,
+				behavior: "smooth",
+			});
+			e.preventDefault();
+		};
+	};
+};
+/* =============================================== */
+
+
+/* =============================================== */
+// Динамический адаптив
+/* =============================================== */
+function DynamicAdapt(type) {
+	this.type = type;
+}
+
+DynamicAdapt.prototype.init = function () {
+	const _this = this;
+	// массив объектов
+	this.оbjects = [];
+	this.daClassname = "_dynamic_adapt_";
+	// массив DOM-элементов
+	this.nodes = document.querySelectorAll("[data-da]");
+
+	// наполнение оbjects объктами
+	for (let i = 0; i < this.nodes.length; i++) {
+		const node = this.nodes[i];
+		const data = node.dataset.da.trim();
+		const dataArray = data.split(",");
+		const оbject = {};
+		оbject.element = node;
+		оbject.parent = node.parentNode;
+		оbject.destination = document.querySelector(dataArray[0].trim());
+		оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+		оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+		оbject.index = this.indexInParent(оbject.parent, оbject.element);
+		this.оbjects.push(оbject);
+	}
+
+	this.arraySort(this.оbjects);
+
+	// массив уникальных медиа-запросов
+	this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
+		return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+	}, this);
+	this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
+		return Array.prototype.indexOf.call(self, item) === index;
+	});
+
+	// навешивание слушателя на медиа-запрос
+	// и вызов обработчика при первом запуске
+	for (let i = 0; i < this.mediaQueries.length; i++) {
+		const media = this.mediaQueries[i];
+		const mediaSplit = String.prototype.split.call(media, ',');
+		const matchMedia = window.matchMedia(mediaSplit[0]);
+		const mediaBreakpoint = mediaSplit[1];
+
+		// массив объектов с подходящим брейкпоинтом
+		const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
+			return item.breakpoint === mediaBreakpoint;
+		});
+		matchMedia.addListener(function () {
+			_this.mediaHandler(matchMedia, оbjectsFilter);
+		});
+		this.mediaHandler(matchMedia, оbjectsFilter);
+	}
+};
+
+DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
+	if (matchMedia.matches) {
+		for (let i = 0; i < оbjects.length; i++) {
+			const оbject = оbjects[i];
+			оbject.index = this.indexInParent(оbject.parent, оbject.element);
+			this.moveTo(оbject.place, оbject.element, оbject.destination);
+		}
+	} else {
+		for (let i = 0; i < оbjects.length; i++) {
+			const оbject = оbjects[i];
+			if (оbject.element.classList.contains(this.daClassname)) {
+				this.moveBack(оbject.parent, оbject.element, оbject.index);
+			}
+		}
+	}
+};
+
+// Функция перемещения
+DynamicAdapt.prototype.moveTo = function (place, element, destination) {
+	element.classList.add(this.daClassname);
+	if (place === 'last' || place >= destination.children.length) {
+		destination.insertAdjacentElement('beforeend', element);
+		return;
+	}
+	if (place === 'first') {
+		destination.insertAdjacentElement('afterbegin', element);
+		return;
+	}
+	destination.children[place].insertAdjacentElement('beforebegin', element);
+}
+
+// Функция возврата
+DynamicAdapt.prototype.moveBack = function (parent, element, index) {
+	element.classList.remove(this.daClassname);
+	if (parent.children[index] !== undefined) {
+		parent.children[index].insertAdjacentElement('beforebegin', element);
+	} else {
+		parent.insertAdjacentElement('beforeend', element);
+	}
+}
+
+// Функция получения индекса внутри родителя
+DynamicAdapt.prototype.indexInParent = function (parent, element) {
+	const array = Array.prototype.slice.call(parent.children);
+	return Array.prototype.indexOf.call(array, element);
+};
+
+// Функция сортировки массива по breakpoint и place 
+// по возрастанию для this.type = min
+// по убыванию для this.type = max
+DynamicAdapt.prototype.arraySort = function (arr) {
+	if (this.type === "min") {
+		Array.prototype.sort.call(arr, function (a, b) {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+
+				if (a.place === "first" || b.place === "last") {
+					return -1;
+				}
+
+				if (a.place === "last" || b.place === "first") {
+					return 1;
+				}
+
+				return a.place - b.place;
+			}
+
+			return a.breakpoint - b.breakpoint;
+		});
+	} else {
+		Array.prototype.sort.call(arr, function (a, b) {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+
+				if (a.place === "first" || b.place === "last") {
+					return 1;
+				}
+
+				if (a.place === "last" || b.place === "first") {
+					return -1;
+				}
+
+				return b.place - a.place;
+			}
+
+			return b.breakpoint - a.breakpoint;
+		});
+		return;
+	}
+};
+
+const da = new DynamicAdapt("max");
+da.init();
+/* =============================================== */
+
+
+/* =============================================== */
+// Popup
+/* =============================================== */
+const popupLinks = document.querySelectorAll(".popup-link");
+const body = document.querySelector("body");
+const lockPadding = document.querySelectorAll(".lock-padding");
+
+let unlock = true;
+
+const timeout = 500;
+
+if (popupLinks.length > 0) {
+	for (let index = 0; index < popupLinks.length; index++) {
+		const popupLink = popupLinks[index];
+		popupLink.addEventListener("click", function (e) {
+			const popupName = popupLink.getAttribute("href").replace("#", "");
+			const currentPopup = document.getElementById(popupName);
+			popupOpen(currentPopup);
+			e.preventDefault();
+		});
+	}
+}
+
+const popupCloseIcon = document.querySelectorAll(".close-popup");
+if (popupCloseIcon.length > 0) {
+	for (let index = 0; index < popupCloseIcon.length; index++) {
+		const element = popupCloseIcon[index];
+		element.addEventListener("click", function (e) {
+			popupClose(element.closest(".popup"));
+			e.preventDefault();
+		});
+	}
+}
+
+// Функция открытия popup'апа
+function popupOpen(currentPopup) {
+	if (currentPopup && unlock) {
+		const popupActive = document.querySelector(".popup.open");
+		if (popupActive) {
+			popupClose(popupActive, false);
+		} else {
+			bodyLock();
+		}
+		currentPopup.classList.add("open");
+		currentPopup.addEventListener("click", function (e) {
+			if (!e.target.closest(".popup__content")) {
+				popupClose(e.target.closest(".popup"));
+			}
+		});
+	}
+}
+
+// Функция закрытия popup'апа 
+function popupClose(popupActive, doUnlock = true) {
+	if (unlock) {
+		popupActive.classList.remove("open");
+		if (doUnlock) {
+			bodyUnLock();
+		}
+	}
+}
+
+// Фунция, которая делает так, чтобы контент не дёргался при открытии popup'апа
+function bodyLock() {
+	const lockPaddingValue = window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
+
+	if (lockPadding.length > 0) {
+		for (let index = 0; index < lockPadding.length; index++) {
+			const element = lockPadding[index];
+			element.style.paddingRight = lockPaddingValue;
+		}
+	}
+
+	body.style.paddingRight = lockPaddingValue;
+	body.classList.add("lock");
+
+	unlock = false;
+	setTimeout(function () {
+		unlock = true;
+	}, timeout);
+}
+
+function bodyUnLock() {
+	setTimeout(function () {
+		if (lockPadding.length > 0) {
+			for (let index = 0; index < lockPadding.length; index++) {
+				const element = lockPadding[index];
+				element.style.paddingRight = "0px";
+			}
+		}
+		body.style.paddingRight = "0px";
+		body.classList.remove("lock");
+	}, timeout);
+
+	unlock = false;
+	setTimeout(function () {
+		unlock = true;
+	}, timeout);
+}
+
+// Закрытие popup'апа по нажатию кнопи escape
+document.addEventListener("keydown", function (e) {
+	if (e.which === 27) {
+		const popupActive = document.querySelector(".popup.open");
+		popupClose(popupActive);
+	}
+});
+/* =============================================== */
+//SlideToggle
+let _slideUp = (target, duration = 500) => {
+	target.style.transitionProperty = 'height, margin, padding';
+	target.style.transitionDuration = duration + 'ms';
+	target.style.height = target.offsetHeight + 'px';
+	target.offsetHeight;
+	target.style.overflow = 'hidden';
+	target.style.height = 0;
+	target.style.paddingTop = 0;
+	target.style.paddingBottom = 0;
+	target.style.marginTop = 0;
+	target.style.marginBottom = 0;
+	window.setTimeout(() => {
+		target.style.display = 'none';
+		target.style.removeProperty('height');
+		target.style.removeProperty('padding-top');
+		target.style.removeProperty('padding-bottom');
+		target.style.removeProperty('margin-top');
+		target.style.removeProperty('margin-bottom');
+		target.style.removeProperty('overflow');
+		target.style.removeProperty('transition-duration');
+		target.style.removeProperty('transition-property');
+		target.classList.remove('_slide');
+	}, duration);
+}
+let _slideDown = (target, duration = 500) => {
+	target.style.removeProperty('display');
+	let display = window.getComputedStyle(target).display;
+	if (display === 'none')
+		display = 'block';
+
+	target.style.display = display;
+	let height = target.offsetHeight;
+	target.style.overflow = 'hidden';
+	target.style.height = 0;
+	target.style.paddingTop = 0;
+	target.style.paddingBottom = 0;
+	target.style.marginTop = 0;
+	target.style.marginBottom = 0;
+	target.offsetHeight;
+	target.style.transitionProperty = "height, margin, padding";
+	target.style.transitionDuration = duration + 'ms';
+	target.style.height = height + 'px';
+	target.style.removeProperty('padding-top');
+	target.style.removeProperty('padding-bottom');
+	target.style.removeProperty('margin-top');
+	target.style.removeProperty('margin-bottom');
+	window.setTimeout(() => {
+		target.style.removeProperty('height');
+		target.style.removeProperty('overflow');
+		target.style.removeProperty('transition-duration');
+		target.style.removeProperty('transition-property');
+		target.classList.remove('_slide');
+	}, duration);
+}
+let _slideToggle = (target, duration = 500) => {
+	if (!target.classList.contains('_slide')) {
+		target.classList.add('_slide');
+		if (window.getComputedStyle(target).display === 'none') {
+			return _slideDown(target, duration);
+		} else {
+			return _slideUp(target, duration);
+		}
+	}
+}
+
+
+/* =============================================== */
+//Select
+/* =============================================== */
+let selects = document.getElementsByTagName('select');
+if (selects.length > 0) {
+	selects_init();
+}
+function selects_init() {
+	for (let index = 0; index < selects.length; index++) {
+		const select = selects[index];
+		select_init(select);
+	}
+	//select_callback();
+	document.addEventListener('click', function (e) {
+		selects_close(e);
+	});
+	document.addEventListener('keydown', function (e) {
+		if (e.code === 'Escape') {
+			selects_close(e);
+		}
+	});
+}
+function selects_close(e) {
+	const selects = document.querySelectorAll('.select');
+	if (!e.target.closest('.select')) {
+		for (let index = 0; index < selects.length; index++) {
+			const select = selects[index];
+			const select_body_options = select.querySelector('.select__options');
+			select.classList.remove('_active');
+			_slideUp(select_body_options, 100);
+		}
+	}
+}
+function select_init(select) {
+	const select_parent = select.parentElement;
+	const select_modifikator = select.getAttribute('class');
+	const select_selected_option = select.querySelector('option:checked');
+	select.setAttribute('data-default', select_selected_option.value);
+	select.style.display = 'none';
+
+	select_parent.insertAdjacentHTML('beforeend', '<div class="select select_' + select_modifikator + '"></div>');
+
+	let new_select = select.parentElement.querySelector('.select');
+	new_select.appendChild(select);
+	select_item(select);
+}
+function select_item(select) {
+	const select_parent = select.parentElement;
+	const select_items = select_parent.querySelector('.select__item');
+	const select_options = select.querySelectorAll('option');
+	const select_selected_option = select.querySelector('option:checked');
+	const select_selected_text = select_selected_option.text;
+	const select_type = select.getAttribute('data-type');
+
+	if (select_items) {
+		select_items.remove();
+	}
+
+	let select_type_content = '';
+	if (select_type == 'input') {
+		select_type_content = '<div class="select__value icon-select-arrow"><input autocomplete="off" type="text" name="form[]" value="' + select_selected_text + '" data-error="Ошибка" data-value="' + select_selected_text + '" class="select__input"></div>';
+	} else {
+		select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
+	}
+
+	select_parent.insertAdjacentHTML('beforeend',
+		'<div class="select__item">' +
+		'<div class="select__title">' + select_type_content + '</div>' +
+		'<div class="select__options">' + select_get_options(select_options) + '</div>' +
+		'</div></div>');
+
+	select_actions(select, select_parent);
+}
+function select_actions(original, select) {
+	const select_item = select.querySelector('.select__item');
+	const select_body_options = select.querySelector('.select__options');
+	const select_options = select.querySelectorAll('.select__option');
+	const select_type = original.getAttribute('data-type');
+	const select_input = select.querySelector('.select__input');
+
+	select_item.addEventListener('click', function () {
+		let selects = document.querySelectorAll('.select');
+		for (let index = 0; index < selects.length; index++) {
+			const select = selects[index];
+			const select_body_options = select.querySelector('.select__options');
+			if (select != select_item.closest('.select')) {
+				select.classList.remove('_active');
+				_slideUp(select_body_options, 100);
+			}
+		}
+		_slideToggle(select_body_options, 100);
+		select.classList.toggle('_active');
+	});
+
+	for (let index = 0; index < select_options.length; index++) {
+		const select_option = select_options[index];
+		const select_option_value = select_option.getAttribute('data-value');
+		const select_option_text = select_option.innerHTML;
+
+		if (select_type == 'input') {
+			select_input.addEventListener('keyup', select_search);
+		} else {
+			if (select_option.getAttribute('data-value') == original.value) {
+				select_option.style.display = 'none';
+			}
+		}
+		select_option.addEventListener('click', function () {
+			for (let index = 0; index < select_options.length; index++) {
+				const el = select_options[index];
+				el.style.display = 'block';
+			}
+			if (select_type == 'input') {
+				select_input.value = select_option_text;
+				original.value = select_option_value;
+			} else {
+				select.querySelector('.select__value').innerHTML = '<span>' + select_option_text + '</span>';
+				original.value = select_option_value;
+				select_option.style.display = 'none';
+			}
+		});
+	}
+}
+function select_get_options(select_options) {
+	if (select_options) {
+		let select_options_content = '';
+		for (let index = 0; index < select_options.length; index++) {
+			const select_option = select_options[index];
+			const select_option_value = select_option.value;
+			if (select_option_value != '') {
+				const select_option_text = select_option.text;
+				select_options_content = select_options_content + '<div data-value="' + select_option_value + '" class="select__option">' + select_option_text + '</div>';
+			}
+		}
+		return select_options_content;
+	}
+}
+function select_search(e) {
+	let select_block = e.target.closest('.select ').querySelector('.select__options');
+	let select_options = e.target.closest('.select ').querySelectorAll('.select__option');
+	let select_search_text = e.target.value.toUpperCase();
+
+	for (let i = 0; i < select_options.length; i++) {
+		let select_option = select_options[i];
+		let select_txt_value = select_option.textContent || select_option.innerText;
+		if (select_txt_value.toUpperCase().indexOf(select_search_text) > -1) {
+			select_option.style.display = "";
+		} else {
+			select_option.style.display = "none";
+		}
+	}
+}
+function selects_update_all() {
+	let selects = document.querySelectorAll('select');
+	if (selects) {
+		for (let index = 0; index < selects.length; index++) {
+			const select = selects[index];
+			select_item(select);
+		}
+	}
+}
+
+//Placeholers
+let inputs = document.querySelectorAll('input[data-value],textarea[data-value]');
+inputs_init(inputs);
+
+function inputs_init(inputs) {
+	if (inputs.length > 0) {
+		for (let index = 0; index < inputs.length; index++) {
+			const input = inputs[index];
+			const input_g_value = input.getAttribute('data-value');
+			input_placeholder_add(input);
+			if (input.value != '' && input.value != input_g_value) {
+				input_focus_add(input);
+			}
+			input.addEventListener('focus', function (e) {
+				if (input.value == input_g_value) {
+					input_focus_add(input);
+					input.value = '';
+				}
+				if (input.getAttribute('data-type') === "pass") {
+					input.setAttribute('type', 'password');
+				}
+				if (input.classList.contains('_date')) {
+					/*
+					input.classList.add('_mask');
+					Inputmask("99.99.9999", {
+						//"placeholder": '',
+						clearIncomplete: true,
+						clearMaskOnLostFocus: true,
+						onincomplete: function () {
+							input_clear_mask(input, input_g_value);
+						}
+					}).mask(input);
+					*/
+				}
+				if (input.classList.contains('_phone')) {
+					//'+7(999) 999 9999'
+					//'+38(999) 999 9999'
+					//'+375(99)999-99-99'
+					input.classList.add('_mask');
+					Inputmask("+375 (99) 9999999", {
+						//"placeholder": '',
+						clearIncomplete: true,
+						clearMaskOnLostFocus: true,
+						onincomplete: function () {
+							input_clear_mask(input, input_g_value);
+						}
+					}).mask(input);
+				}
+				if (input.classList.contains('_digital')) {
+					input.classList.add('_mask');
+					Inputmask("9{1,}", {
+						"placeholder": '',
+						clearIncomplete: true,
+						clearMaskOnLostFocus: true,
+						onincomplete: function () {
+							input_clear_mask(input, input_g_value);
+						}
+					}).mask(input);
+				}
+				form_remove_error(input);
+			});
+			input.addEventListener('blur', function (e) {
+				if (input.value == '') {
+					input.value = input_g_value;
+					input_focus_remove(input);
+					if (input.classList.contains('_mask')) {
+						input_clear_mask(input, input_g_value);
+					}
+					if (input.getAttribute('data-type') === "pass") {
+						input.setAttribute('type', 'text');
+					}
+				}
+			});
+			if (input.classList.contains('_date')) {
+				datepicker(input, {
+					customDays: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+					customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+					formatter: (input, date, instance) => {
+						const value = date.toLocaleDateString()
+						input.value = value
+					},
+					onSelect: function (input, instance, date) {
+						input_focus_add(input.el);
+					}
+				});
+			}
+		}
+	}
+}
+function input_placeholder_add(input) {
+	const input_g_value = input.getAttribute('data-value');
+	if (input.value == '' && input_g_value != '') {
+		input.value = input_g_value;
+	}
+}
+function input_focus_add(input) {
+	input.classList.add('_focus');
+	input.parentElement.classList.add('_focus');
+}
+function input_focus_remove(input) {
+	input.classList.remove('_focus');
+	input.parentElement.classList.remove('_focus');
+}
+function input_clear_mask(input, input_g_value) {
+	input.inputmask.remove();
+	input.value = input_g_value;
+	input_focus_remove(input);
+}
+
+
+
+
+
+
+
+/* =============================================== */
+// Полифилы
+/* =============================================== */
+(function () {
+	// проверяем поддержку
+	if (!Element.prototype.closest) {
+		// реализуем
+		Element.prototype.closest = function (css) {
+			var node = this;
+			while (node) {
+				if (node.matches(css)) return node;
+				else node = node.parentElement;
+			}
+			return null;
+		};
+	}
+})();
+(function () {
+	// проверяем поддержку
+	if (!Element.prototype.matches) {
+		// определяем свойство
+		Element.prototype.matches = Element.prototype.matchesSelector ||
+			Element.prototype.webkitMatchesSelector ||
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.msMatchesSelector;
+	}
+})();
