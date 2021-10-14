@@ -134,7 +134,13 @@
                                             <div class="form__item">
                                                 <label class="form__label" for="client-carddate">Дата рожденья</label>
                                                 <input class="form__input date req" name="client-carddate"
-                                                    placeholder="ДД.ММ.ГГГГ" type="date">
+                                                    placeholder="ДД.ММ.ГГГГ" type="date" onkeyup="
+        var v = this.value;
+        if (v.match(/^\d{4}$/) !== null) {
+            this.value = v + '/';
+        } else if (v.match(/^\d{4}\/\d{2}$/) !== null) {
+            this.value = v + '/';
+        }">
                                             </div>
                                             <div class="form__item client-card">
                                                 <label class="form__label" for="client-card">Номер карты клиента</label>
