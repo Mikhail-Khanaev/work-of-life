@@ -1,50 +1,50 @@
 
 const swiperOffer = new Swiper(".swiper-offer", {
-	slidesPerView: 4,
-	spaceBetween: 35,
-	scrollbar: {
-		el: ".swiper-offer .swiper-scrollbar",
-		draggable: true,
-	},
-	breakpoints: {
-		1100: {
-			slidesPerView: 4,
+    slidesPerView: 4,
+    spaceBetween: 35,
+    scrollbar: {
+        el: ".swiper-offer .swiper-scrollbar",
+        draggable: true,
+    },
+    breakpoints: {
+        1100: {
+            slidesPerView: 4,
 
-		},
-		768: {
-			slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 2,
 
-		},
-		320: {
-			slidesPerView: 1,
-			centeredSlides: true,
-			// slidesPerGroup: 1,
-		}
-	}
+        },
+        320: {
+            slidesPerView: 1,
+            centeredSlides: true,
+            // slidesPerGroup: 1,
+        }
+    }
 });
 
 const swiperNews = new Swiper(".news__cards", {
-	slidesPerView: 3,
-	spaceBetween: 35,
-	scrollbar: {
-		el: ".news__cards .swiper-scrollbar",
-		draggable: true,
-	},
-	breakpoints: {
-		1100: {
-			slidesPerView: 2,
+    slidesPerView: 3,
+    spaceBetween: 35,
+    scrollbar: {
+        el: ".news__cards .swiper-scrollbar",
+        draggable: true,
+    },
+    breakpoints: {
+        1100: {
+            slidesPerView: 2,
 
-		},
-		768: {
-			slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 2,
 
-		},
-		320: {
-			slidesPerView: 1,
-			centeredSlides: true,
-			// slidesPerGroup: 1,
-		}
-	}
+        },
+        320: {
+            slidesPerView: 1,
+            centeredSlides: true,
+            // slidesPerGroup: 1,
+        }
+    }
 });
 
 
@@ -132,98 +132,99 @@ const swiperNews = new Swiper(".news__cards", {
 // });
 
 document.addEventListener('DOMContentLoaded', function () {
-	const form = document.getElementById('form');
-	form.addEventListener('submit', formSend);
+    const form = document.getElementById('form');
+    form.addEventListener('submit', formSend);
 
-	async function formSend(e) {
-		e.preventDefault();
+    async function formSend(e) {
+        e.preventDefault();
 
-		let error = formValidate(form);
+        let error = formValidate(form);
 
-		let formData = new FormData(form);
-		formData.append('image', formImage.files[0]);
+        let formData = new FormData(form);
+        formData.append('image', formImage.files[0]);
 
-		if (error === 0) {
-			form.classList.add('_sending');
-			let response = await fetch('sendmail.php', {
-				method: 'POST',
-				body: formData
-			});
-			if (response.ok) {
-				let result = await response.json();
-				alert(result.message);
-				formPreview.innerHTML = '';
-				form.reset();
-				form.classList.remove('_sending');
-			} else {
-				alert("Ошибка");
-				form.classList.remove('_sending');
-			}
-		} else {
-			alert('Заполните обязательные поля');
-		}
+        if (error === 0) {
 
-	}
+            form.classList.add('_sending');
+            let response = await fetch('sendmail.php', {
+                method: 'POST',
+                body: formData
+            });
+            if (response.ok) {
+                let result = await response.json();
+                alert(result.message);
+                formPreview.innerHTML = '';
+                form.reset();
+                form.classList.remove('_sending');
+            } else {
+                alert("Ошибка");
+                form.classList.remove('_sending');
+            }
+        } else {
+            alert('Заполните обязательные поля');
+        }
+
+    }
 
 
-	function formValidate(form) {
-		let error = 0;
-		let formReq = document.querySelectorAll('.req');
+    function formValidate(form) {
+        let error = 0;
+        let formReq = document.querySelectorAll('.req');
 
-		for (let index = 0; index < formReq.length; index++) {
-			const input = formReq[index];
-			formRemoveError(input);
+        for (let index = 0; index < formReq.length; index++) {
+            const input = formReq[index];
+            formRemoveError(input);
 
-			if (input.classList.contains("email")) {
-				if ((emailTest(input))) {
-					formAddError(input);
-					error++;
-				}
-			} else if (input.getAttribute("type") === "checkbox" && input.checked == false) {
-				formAddError(input);
-				error++;
-			} else if (input.classList.contains("tel")) {
-				if ((telTest(input))) {
-					formAddError(input);
-					error++;
-				}
-			} else if ((input.classList.contains("password")) && (document.getElementById("formPassword").value != "")) {
-				if (document.getElementById("formPassword").value != document.getElementById("formPasswordAgreement").value) {
-					formAddError(input);
-					error++;
-				}
-			} else if (input.classList.contains("date")) {
-				if ((dateTest(input))) {
-					formAddError(input);
-					error++;
-				}
-			} else {
-				if (input.value == "") {
-					formAddError(input);
-					error++;
-				}
-			}
-		}
-		return error;
-	}
-	function formAddError(input) {
-		input.parentElement.classList.add('error');
-		input.classList.add('error');
-	}
-	function formRemoveError(input) {
-		input.parentElement.classList.remove('error');
-		input.classList.remove('error');
-	}
-	//Функция теста email
-	function emailTest(input) {
-		return !/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/.test(input.value);
-	}
-	function telTest(input) {
-		return !/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(input.value);
-	}
-	function dateTest(input) {
-		return !/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/.test(input.value);
-	}
+            if (input.classList.contains("email")) {
+                if ((emailTest(input))) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if (input.getAttribute("type") === "checkbox" && input.checked == false) {
+                formAddError(input);
+                error++;
+            } else if (input.classList.contains("tel")) {
+                if ((telTest(input))) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if ((input.classList.contains("password")) && (document.getElementById("formPassword").value != "")) {
+                if (document.getElementById("formPassword").value != document.getElementById("formPasswordAgreement").value) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if (input.classList.contains("date")) {
+                if ((dateTest(input))) {
+                    formAddError(input);
+                    error++;
+                }
+            } else {
+                if (input.value == "") {
+                    formAddError(input);
+                    error++;
+                }
+            }
+        }
+        return error;
+    }
+    function formAddError(input) {
+        input.parentElement.classList.add('error');
+        input.classList.add('error');
+    }
+    function formRemoveError(input) {
+        input.parentElement.classList.remove('error');
+        input.classList.remove('error');
+    }
+    //Функция теста email
+    function emailTest(input) {
+        return !/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/.test(input.value);
+    }
+    function telTest(input) {
+        return !/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(input.value);
+    }
+    function dateTest(input) {
+        return !/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/.test(input.value);
+    }
 });
 
 
@@ -231,105 +232,105 @@ document.addEventListener('DOMContentLoaded', function () {
 const btnPass = document.querySelectorAll(".password__btn");
 const inputPass = document.querySelectorAll(".form__password");
 if (inputPass.length > 0) {
-	for (let index = 0; index < btnPass.length; index++) {
-		const btn = btnPass[index];
-		const input = inputPass[index];
+    for (let index = 0; index < btnPass.length; index++) {
+        const btn = btnPass[index];
+        const input = inputPass[index];
 
 
-		btn.addEventListener("click", function (e) {
-			btn.classList.toggle("active");
+        btn.addEventListener("click", function (e) {
+            btn.classList.toggle("active");
 
-			if (input.style.webkitTextSecurity === "disc") {
-				input.style.webkitTextSecurity = "none";
-			} else {
-				input.style.webkitTextSecurity = "disc";
-			}
-		})
-	}
+            if (input.style.webkitTextSecurity === "disc") {
+                input.style.webkitTextSecurity = "none";
+            } else {
+                input.style.webkitTextSecurity = "disc";
+            }
+        })
+    }
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-	var inputs = document.querySelectorAll('input[type="tel"]');
+    var inputs = document.querySelectorAll('input[type="tel"]');
 
-	Array.prototype.forEach.call(inputs, function (input) {
-		new InputMask({
-			selector: input, // в качестве селектора может быть элемент, или, собственно css селектор('#input', '.input', 'input'). Если селектор - тег или класс - будет получен только первый элемент
-			layout: input.dataset.mask
-		})
-	})
+    Array.prototype.forEach.call(inputs, function (input) {
+        new InputMask({
+            selector: input, // в качестве селектора может быть элемент, или, собственно css селектор('#input', '.input', 'input'). Если селектор - тег или класс - будет получен только первый элемент
+            layout: input.dataset.mask
+        })
+    })
 
 })
 
 function InputMask(options) {
-	this.el = this.getElement(options.selector);
-	if (!this.el) return console.log('Что-то не так с селектором');
-	this.layout = options.layout || '+_ (___) ___-__-__';
-	this.maskreg = this.getRegexp();
+    this.el = this.getElement(options.selector);
+    if (!this.el) return console.log('Что-то не так с селектором');
+    this.layout = options.layout || '+_ (___) ___-__-__';
+    this.maskreg = this.getRegexp();
 
-	this.setListeners();
+    this.setListeners();
 }
 
 InputMask.prototype.getRegexp = function () {
-	var str = this.layout.replace(/_/g, '\\d')
-	str = str.replace(/\(/g, '\\(')
-	str = str.replace(/\)/g, '\\)')
-	str = str.replace(/\+/g, '\\+')
-	str = str.replace(/\s/g, '\\s')
+    var str = this.layout.replace(/_/g, '\\d')
+    str = str.replace(/\(/g, '\\(')
+    str = str.replace(/\)/g, '\\)')
+    str = str.replace(/\+/g, '\\+')
+    str = str.replace(/\s/g, '\\s')
 
-	return str;
+    return str;
 }
 
 InputMask.prototype.mask = function (e) {
-	var _this = e.target,
-		matrix = this.layout,
-		i = 0,
-		def = matrix.replace(/\D/g, ""),
-		val = _this.value.replace(/\D/g, "");
+    var _this = e.target,
+        matrix = this.layout,
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = _this.value.replace(/\D/g, "");
 
-	if (def.length >= val.length) val = def;
+    if (def.length >= val.length) val = def;
 
-	_this.value = matrix.replace(/./g, function (a) {
-		return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-	});
+    _this.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+    });
 
-	if (e.type == "blur") {
-		var regexp = new RegExp(this.maskreg);
-		if (!regexp.test(_this.value)) _this.value = "";
-	} else {
-		this.setCursorPosition(_this.value.length, _this);
-	}
+    if (e.type == "blur") {
+        var regexp = new RegExp(this.maskreg);
+        if (!regexp.test(_this.value)) _this.value = "";
+    } else {
+        this.setCursorPosition(_this.value.length, _this);
+    }
 }
 
 InputMask.prototype.setCursorPosition = function (pos, elem) {
-	elem.focus();
-	if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
-	else if (elem.createTextRange) {
-		var range = elem.createTextRange();
-		range.collapse(true);
-		range.moveEnd("character", pos);
-		range.moveStart("character", pos);
-		range.select()
-	}
+    elem.focus();
+    if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
+    else if (elem.createTextRange) {
+        var range = elem.createTextRange();
+        range.collapse(true);
+        range.moveEnd("character", pos);
+        range.moveStart("character", pos);
+        range.select()
+    }
 }
 
 InputMask.prototype.setListeners = function () {
-	this.el.addEventListener("input", this.mask.bind(this), false);
-	this.el.addEventListener("focus", this.mask.bind(this), false);
-	this.el.addEventListener("blur", this.mask.bind(this), false);
+    this.el.addEventListener("input", this.mask.bind(this), false);
+    this.el.addEventListener("focus", this.mask.bind(this), false);
+    this.el.addEventListener("blur", this.mask.bind(this), false);
 }
 
 InputMask.prototype.getElement = function (selector) {
-	if (selector === undefined) return false;
-	if (this.isElement(selector)) return selector;
-	if (typeof selector == 'string') {
-		var el = document.querySelector(selector);
-		if (this.isElement(el)) return el;
-	}
-	return false
+    if (selector === undefined) return false;
+    if (this.isElement(selector)) return selector;
+    if (typeof selector == 'string') {
+        var el = document.querySelector(selector);
+        if (this.isElement(el)) return el;
+    }
+    return false
 }
 
 InputMask.prototype.isElement = function (element) {
-	return element instanceof Element || element instanceof HTMLDocument;
+    return element instanceof Element || element instanceof HTMLDocument;
 }
 
 
@@ -337,30 +338,30 @@ InputMask.prototype.isElement = function (element) {
 const tabsBtn = document.querySelectorAll(".tabs__nav-btn");
 const tabsItems = document.querySelectorAll(".tabs__item");
 if (tabsItems.length > 0) {
-	tabsBtn.forEach(function (item) {
-		item.addEventListener("click", function () {
-			let currentBtn = item;
-			let tabId = currentBtn.getAttribute("data-tab");
-			let currentTab = document.querySelector(tabId);
+    tabsBtn.forEach(function (item) {
+        item.addEventListener("click", function () {
+            let currentBtn = item;
+            let tabId = currentBtn.getAttribute("data-tab");
+            let currentTab = document.querySelector(tabId);
 
-			if (!currentBtn.classList.contains('active')) {
-				tabsBtn.forEach(function (item) {
-					item.classList.remove("active");
-				});
+            if (!currentBtn.classList.contains('active')) {
+                tabsBtn.forEach(function (item) {
+                    item.classList.remove("active");
+                });
 
-				tabsItems.forEach(function (item) {
-					item.classList.remove("active");
-				});
+                tabsItems.forEach(function (item) {
+                    item.classList.remove("active");
+                });
 
-				currentBtn.classList.add("active");
-				currentTab.classList.add("active");
-			}
+                currentBtn.classList.add("active");
+                currentTab.classList.add("active");
+            }
 
 
-		});
-	});
+        });
+    });
 
-	document.querySelector(".tabs__nav-btn-top").click();
+    document.querySelector(".tabs__nav-btn-top").click();
 }
 const iconTabs = document.querySelector(".tabs__icon");
 const tabsBody = document.querySelector(".tabs__nav-bottom");
@@ -370,92 +371,119 @@ const tabItems = document.querySelectorAll(".tabs__nav-btn");
 
 
 if (iconTabs) {
-	iconTabs.addEventListener("click", function (e) {
-		iconTabs.classList.toggle("active");
-		tabsBody.classList.toggle("active");
-		profileInner.classList.toggle("active");
-		for (let index = 0; index < tabItems.length; index++) {
-			const tabItem = tabItems[index];
-			tabItem.addEventListener("click", function () {
+    iconTabs.addEventListener("click", function (e) {
+        iconTabs.classList.toggle("active");
+        tabsBody.classList.toggle("active");
+        profileInner.classList.toggle("active");
+        for (let index = 0; index < tabItems.length; index++) {
+            const tabItem = tabItems[index];
+            tabItem.addEventListener("click", function () {
 
-				tabItem.classList.add("active");
-			});
-		}
-	});
-	for (let index = 0; index < tabItems.length; index++) {
-		const tabItem = tabItems[index];
-		tabItem.addEventListener("click", function () {
-			if (tabItem.classList.contains("active")) {
-				iconTabs.classList.remove("active");
-				tabsBody.classList.remove("active");
-				profileInner.classList.remove("active");
-			}
-		});
-	}
+                tabItem.classList.add("active");
+            });
+        }
+    });
+    for (let index = 0; index < tabItems.length; index++) {
+        const tabItem = tabItems[index];
+        tabItem.addEventListener("click", function () {
+            if (tabItem.classList.contains("active")) {
+                iconTabs.classList.remove("active");
+                tabsBody.classList.remove("active");
+                profileInner.classList.remove("active");
+            }
+        });
+    }
 }
 
 //Spollers
 let spollers = document.querySelectorAll("._spoller");
 let spollersGo = true;
 if (spollers.length > 0) {
-	for (let index = 0; index < spollers.length; index++) {
-		const spoller = spollers[index];
-		spoller.addEventListener("click", function (e) {
-			if (spollersGo) {
-				spollersGo = false;
-				if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
-					return false;
-				}
-				if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
-					return false;
-				}
-				if (spoller.closest('._spollers').classList.contains('_one')) {
-					let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
-					for (let i = 0; i < curent_spollers.length; i++) {
-						let el = curent_spollers[i];
-						if (el != spoller) {
-							el.classList.remove('_active');
-							_slideUp(el.nextElementSibling);
-						}
-					}
-				}
-				spoller.classList.toggle('_active');
-				_slideToggle(spoller.nextElementSibling);
+    for (let index = 0; index < spollers.length; index++) {
+        const spoller = spollers[index];
+        spoller.addEventListener("click", function (e) {
+            if (spollersGo) {
+                spollersGo = false;
+                if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
+                    return false;
+                }
+                if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
+                    return false;
+                }
+                if (spoller.closest('._spollers').classList.contains('_one')) {
+                    let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
+                    for (let i = 0; i < curent_spollers.length; i++) {
+                        let el = curent_spollers[i];
+                        if (el != spoller) {
+                            el.classList.remove('_active');
+                            _slideUp(el.nextElementSibling);
+                        }
+                    }
+                }
+                spoller.classList.toggle('_active');
+                _slideToggle(spoller.nextElementSibling);
 
-				setTimeout(function () {
-					spollersGo = true;
-				}, 500);
-			}
-		});
-	}
+                setTimeout(function () {
+                    spollersGo = true;
+                }, 500);
+            }
+        });
+    }
 }
-// const descriptionTabsBtn = document.querySelectorAll(".description__tab-btn");
-// const descriptionTabsItems = document.querySelectorAll(".description__tabs-item");
+const descriptionTabsBtn = document.querySelectorAll(".description__tab-btn");
+const descriptionTabsItems = document.querySelectorAll(".description__tabs-item");
 
-// descriptionTabsBtn.forEach(onDescriptionTabClick);
 
-// function onDescriptionTabClick(item) {
-//     item.addEventListener("click", function () {
-//         let currentBtn = item;
-//         let tabId = currentBtn.getAttribute("data-tab");
-//         let currentTab = document.querySelector(tabId);
+if (descriptionTabsBtn.length > 0) {
+    descriptionTabsBtn.forEach(onDescriptionTabClick);
 
-//         if (!currentBtn.classList.contains('active')) {
-//             descriptionTabsBtn.forEach(function (item) {
-//                 item.classList.remove('active');
-//             });
+    function onDescriptionTabClick(item) {
+        item.addEventListener("click", function () {
+            let currentBtn = item;
+            let tabId = currentBtn.getAttribute("data-tab");
+            let currentTab = document.querySelector(tabId);
 
-//             descriptionTabsItems.forEach(function (item) {
-//                 item.classList.remove('active');
-//             });
+            if (!currentBtn.classList.contains('active')) {
+                descriptionTabsBtn.forEach(function (item) {
+                    item.classList.remove('active');
+                });
 
-//             currentBtn.classList.add('active');
-//             currentTab.classList.add('active');
-//         }
-//     });
-// }
+                descriptionTabsItems.forEach(function (item) {
+                    item.classList.remove('active');
+                });
 
-// document.querySelector('.description__tab-btn').click();
+                currentBtn.classList.add('active');
+                currentTab.classList.add('active');
+            }
+        });
+    }
+
+    document.querySelector('.description__tab-btn').click();
+
+}
+
+const clearButton = document.querySelector(".clear");
+const nextButton = document.querySelector(".next");
+const clearButton2 = document.querySelector(".clear2");
+
+
+if (clearButton) {
+    clearButton.addEventListener("click", function () {
+        document.getElementById("form-product").reset();
+    });
+    clearButton2.addEventListener("click", function () {
+        document.getElementById("form-product-2").reset();
+    });
+}
+
+const firstForm = document.querySelector(".form__body-first");
+const secondForm = document.querySelector(".form__body-second");
+if (firstForm) {
+    nextButton.addEventListener("click", function () {
+        firstForm.style.display = "none";
+        secondForm.style.display = "block";
+    });
+}
 "use strict"
 /* =============================================== */
 // Код для меню с подменю
@@ -1206,31 +1234,3 @@ function input_clear_mask(input, input_g_value) {
 			Element.prototype.msMatchesSelector;
 	}
 })();
-
-const descriptionTabsBtn = document.querySelectorAll(".description__tab-btn");
-const descriptionTabsItems = document.querySelectorAll(".description__tabs-item");
-
-descriptionTabsBtn.forEach(onDescriptionTabClick);
-
-function onDescriptionTabClick(item) {
-	item.addEventListener("click", function () {
-		let currentBtn = item;
-		let tabId = currentBtn.getAttribute("data-tab");
-		let currentTab = document.querySelector(tabId);
-
-		if (!currentBtn.classList.contains('active')) {
-			descriptionTabsBtn.forEach(function (item) {
-				item.classList.remove('active');
-			});
-
-			descriptionTabsItems.forEach(function (item) {
-				item.classList.remove('active');
-			});
-
-			currentBtn.classList.add('active');
-			currentTab.classList.add('active');
-		}
-	});
-}
-
-document.querySelector('.description__tab-btn').click();

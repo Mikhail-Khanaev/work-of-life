@@ -545,9 +545,122 @@
                         <div class="feedback__content">
 
                             <div class="feedback__column">
+                                <div class="feedback__form">
 
+                                    <form action="#" id="form-product" class="form__body form__body-first">
+                                        <h4 class="form__title">
+                                            <div class="form__title-body">
+                                                <div class="form__title-num">
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div class="form__item">
+                                            <label class="form__label" for="formSurname">ФИО*</label>
+                                            <input id="formSurname" type="text" placeholder="Иванов Иван Иванович"
+                                                name="surname" class="form__input req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formTel">Номер телефона*</label>
+                                            <input id="formTel" data-mask="+7 (___) ___-__-__"
+                                                placeholder="+7(___)___-__-__" type="tel" name="patronymic"
+                                                class="form__input tel req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formMail">Email*</label>
+                                            <input id="formMail" placeholder="mail@example.ru" type="text"
+                                                name="patronymic" class="form__input email req">
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="city">Регион*</label>
+                                            <input id="formCity" type="text" placeholder="Санкт-Петербург" name="city"
+                                                class="form__input req">
+                                        </div>
+                                        <div class="form__item form__buttons-wrapper">
+                                            <button class="clear" type="button">Очистить</button>
+                                            <button class="description__tab-btn next" type="button">Далее</button>
+                                        </div>
+                                    </form>
+                                    <form action="#" id="form-product-2" class="form__body form__body-second">
+                                        <h4 class="form__title form__title-second">
+                                            <div class="form__title-body">
+                                                <div class="form__title-num">
+                                                    <span>2</span>
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div class="form__wrapper">
+                                            <div class="form__wrapper-columns">
+                                                <div class="form__item">
+                                                    <label class="form__label" for="formSurname">Наименование страхового
+                                                        продукта</label>
+                                                    <select name="form[]" class="form" id="">
+                                                        <option value="1" selected>Защита +</option>
+                                                        <option value="2">Расторжение страхового полиса</option>
+                                                        <option value="3">Расторжение страхового полиса</option>
+                                                        <option value="4">Расторжение страхового полиса</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form__item">
+                                                    <label class="form__label" for="formSurname">Выберите тему</label>
+                                                    <select name="form[]" class="form" id="">
+                                                        <option value="1" selected>Расторжение страхового полиса
+                                                        </option>
+                                                        <option value="2">Расторжение страхового полиса</option>
+                                                        <option value="3">Расторжение страхового полиса</option>
+                                                        <option value="4">Расторжение страхового полиса</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form__wrapper-columns">
+                                                <div class="form__item">
+                                                    <label class="form__label" for="client-card">Номер полиса</label>
+                                                    <input class="form__input" name="client-card"
+                                                        placeholder="123456789" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label" for="formMassege">Ваше сообщение</label>
+                                            <textarea id="formMail" placeholder="Здравствуйте!" type="text"
+                                                name="formMassege" class="form__input"></textarea>
+                                        </div>
+                                        <div class="form__wrapper-file">
+                                            <div class="form__wrapper-file-column">
+                                                <div class="form__item">
+                                                    <div class="file">
+                                                        <div class="file__item">
+                                                            <input accept=".jpg, .gif, .png" type="file" name="image"
+                                                                class="file__input">
+                                                            <div class="file__button">Выбрать файл</div>
+                                                        </div>
+                                                        <div class="file__preview"></div>
+                                                    </div>
+                                                </div>
+                                                <p>JPG, GIF или PNG. Максимальный размер 1 мб.</p>
+                                            </div>
+                                            <div class="form__wrapper-file-column form-row">
+                                                <div class="checkbox__item checkbox__item-parent">
+                                                    <input id="formAgreement" checked type="checkbox" name="agreement"
+                                                        class="checkbox__input req">
+                                                    <label for="formAgreement" class="checkbox__label">
+                                                        <div>Я принимаю <a href="#">условия передачи информации</a>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="form__item form__buttons-wrapper">
+                                                    <button class="clear clear2" type="button">Очистить</button>
+                                                    <button class="next next2" type="submit">отправить</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
                             </div>
-                            <div class="feedback__column">
+                            <div class="feedback__column feedback__column-image">
                                 <div class="feedback__image">
                                     <img src="img/products/feedback/1.png" alt="">
                                 </div>
