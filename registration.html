@@ -16,7 +16,7 @@
     <div class="wrapper">
 <header class="header">
     <div class="container header__container">
-        <a href="#" class="header__logo"><img src="img/header/logo.png" alt="logo"></a>
+        <a href="index.html" class="header__logo"><img src="img/header/logo.svg" alt="logo"></a>
 
         <div class="header__menu menu">
             <div class="menu__icon icon-menu">
@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
                                     <div class="form__column">
-                                        <div class="form__item">
+                                        <div class="form__item form__item-tel">
                                             <label class="form__label" for="formTel">Телефон</label>
                                             <input id="formTel" data-mask="+7 (___) ___-__-__"
                                                 placeholder="+7(___)___-__-__" type="tel" name="patronymic"
@@ -116,7 +116,7 @@
                                             <input id="formPassword" placeholder="Придумайте пароль" type="text"
                                                 style="-webkit-text-security: disc;" name="formpassword"
                                                 class="form__input form__password password req">
-                                            <div class="password__btn"></div>
+                                            <!-- <div class="password__btn"></div> -->
                                         </div>
                                         <div class="form__item">
                                             <label class="form__label" for="formPasswordAgreement">Подтверждение
@@ -125,27 +125,24 @@
                                                 type="text" style="-webkit-text-security: disc;"
                                                 name="formpasswordAgreement"
                                                 class="form__input form__password password req">
-                                            <div class="password__btn"></div>
+                                            <!-- <div class="password__btn"></div> -->
 
                                         </div>
                                     </div>
-                                    <div data-da=".form__column-first,1200,last" class="form__column">
+                                    <div data-da=".form__column-first,1200,last" class="form__column form__column-data">
                                         <div class="form__item-wrapper">
                                             <div class="form__item">
                                                 <label class="form__label" for="client-carddate">Дата рожденья</label>
                                                 <input class="form__input date req" name="client-carddate"
-                                                    placeholder="ДД.ММ.ГГГГ" type="text" onkeyup="
-        var v = this.value;
-        if (v.match(/^\d{2}$/) !== null) {
-            this.value = v + '/';
-        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
-            this.value = v + '/';
-        }" maxlength="10">
+                                                    placeholder="ДД.ММ.ГГГГ" type="date">
                                             </div>
-                                            <div class="form__item">
+                                            <div class="form__item client-card">
                                                 <label class="form__label" for="client-card">Номер карты клиента</label>
                                                 <input class="form__input" name="client-card" placeholder="123456"
                                                     type="text">
+                                                <p>Укажите (если имеется) последние шесть цифр</p>
+                                                <a data-tooltip="Всплывающая подсказка" href="#"><img src="img/27.svg"
+                                                        alt="#1" class="client-card-decoration"></a>
                                             </div>
                                         </div>
                                     </div>
