@@ -13,6 +13,39 @@
 </head>
 <body>
     <div class="wrapper">
+<style>
+    .header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        background-color: #fff;
+        box-shadow: 0px 4px 15px rgba(49, 60, 72, 0.05);
+    }
+
+    .header__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: 1501px;
+        min-height: 80px;
+    }
+
+    .header__logo {
+        position: relative;
+        z-index: 250;
+
+    }
+
+    .header__logo img {
+        max-width: 100%;
+        min-width: 53px;
+        object-fit: cover;
+    }
+</style>
+
 <header class="header lock-padding">
     <div class="container header__container">
         <a href="index.html" class="header__logo"><img src="img/header/logo.svg" alt="logo"></a>
