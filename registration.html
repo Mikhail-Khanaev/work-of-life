@@ -27,7 +27,7 @@
                 <ul class="menu__list">
                     <li class="menu__link-main"><a href="index.html" class="menu__link">Главная</a></li>
                     <li><a href="products.html" class="menu__link">О нас</a></li>
-                    <li>
+                    <li class="menu__link-help">
                         <a href="#" class="menu__link">Помощь</a>
                         <span class="menu__arrow"></span>
                         <ul class="menu__sub-list">
@@ -134,7 +134,14 @@
                                             <div class="form__item">
                                                 <label class="form__label" for="client-carddate">Дата рожденья</label>
                                                 <input class="form__input date req" id="client-carddate"
-                                                    name="client-carddate" type="date">
+                                                    name="client-carddate" type="date" min="1900-01-02" max="2199-01-02"
+                                                    placeholder="ДД/ММ/ГГГГ" onkeyup="
+        var v = this.value;
+        if (v.match(/^\d{2}$/) !== null) {
+            this.value = v + '/';
+        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+            this.value = v + '/';
+        }" maxlength="10">
                                             </div>
                                             <div class="form__item client-card">
                                                 <label class="form__label" for="client-card">Номер карты клиента</label>
