@@ -44,6 +44,88 @@
         min-width: 53px;
         object-fit: cover;
     }
+
+
+    @media (max-width: 1240px) {
+        .link-lk {
+            justify-content: flex-end;
+
+        }
+    }
+
+    .menu__link-lk {
+        position: relative;
+        margin-right: 25px;
+
+    }
+
+    @media (max-width: 1240px) {
+        .menu__link-lk {
+            display: inline-flex;
+            justify-content: flex-end;
+            padding: 20px;
+            padding-right: 60px;
+            box-shadow: 0px 2px 18px rgba(41, 41, 41, 0.1);
+            border-radius: 20px;
+        }
+
+        .menu__link-lk:before {
+            top: -5%;
+            font-size: 25px;
+            position: absolute;
+            right: -30px;
+
+        }
+    }
+
+    @media (max-width: 1240px) {
+        .menu__link-lk:before {
+            top: 32%;
+            right: 15px;
+        }
+    }
+
+    .menu__link {
+        color: #0d1c41;
+        font-size: 18px;
+
+        transition: all 0.3s ease;
+
+    }
+
+    @media (min-width: 1241px) {
+        .menu__link:hover {
+            color: #a89060;
+        }
+
+        .menu__link::after {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: #a89060;
+            border-radius: 10px;
+
+            content: "";
+            transition: width 0.5s;
+            z-index: 2;
+        }
+
+        .menu__link:hover::after {
+            width: 100%;
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            height: 2px;
+            background-color: #a89060;
+            content: "";
+            transition: width 0.5s;
+            z-index: 2;
+        }
+    }
 </style>
 
 <header class="header lock-padding">
